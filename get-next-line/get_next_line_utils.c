@@ -1,0 +1,99 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/21 17:26:23 by eukwon            #+#    #+#             */
+/*   Updated: 2022/03/26 20:37:45 by eukwon           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+
+size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	len;
+
+	len = ft_strlen(s);
+	while (len + 1)
+	{
+		if ((char)c == *s)
+			return ((char *)s);
+		s++;
+		len--;
+	}
+	return (0);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	i;
+	size_t	s_len;
+
+	s_len = ft_strlen(s);
+	if (s_len < start)
+		return (NULL);
+	if (s_len - start < len)
+		len = s_len - start;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (substr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		substr[i] = s[start + i];
+		i++;
+	}
+	substr[i] = '\0';
+	return (substr);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	s1_len;
+	size_t	s2_len;
+	size_t	i;
+	char	*joinstr;
+
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	joinstr = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
+	if (joinstr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < s1_len)
+	{
+		joinstr[i] = *s1++;
+		i++;
+	}
+	while (i < s1_len + s2_len)
+	{
+		joinstr[i] = *s2++;
+		i++;
+	}
+	joinstr[i] = '\0';
+	return (joinstr);
+}
+
+t_list	*ft_lstlast(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	return (tmp);
+}
