@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunbin <eunbin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:26:30 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/01 21:20:36 by eunbin           ###   ########.fr       */
+/*   Updated: 2022/04/17 11:09:00 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,10 +89,10 @@ char	*ft_get_line(int fd, t_list *fd_lst)
 		newl = ft_strchr(lst_ptr->backup, '\n');
 	}
 	temp = ft_substr(lst_ptr->backup, 0, (newl - (lst_ptr->backup)) + 1);
-	if (lst_ptr->backup)
-		free(lst_ptr->backup);
-	if(lst_ptr->buff)
-		free(lst_ptr->buff);
+	// if (lst_ptr->backup)
+	// 	free(lst_ptr->backup);
+	// if(lst_ptr->buff)
+	// 	free(lst_ptr->buff);
 	lst_ptr->backup = ft_strchr(lst_ptr->backup, '\n') + 1;
 	return (temp);
 }

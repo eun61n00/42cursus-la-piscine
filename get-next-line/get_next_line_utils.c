@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:26:23 by eukwon            #+#    #+#             */
-/*   Updated: 2022/03/26 20:37:45 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/17 16:37:35 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
@@ -88,12 +88,36 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (joinstr);
 }
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
-	tmp = lst;
-	while (tmp && tmp->next)
-		tmp = tmp->next;
-	return (tmp);
+	if (*lst == 0)
+		*lst = new;
+	else
+	{
+		tmp = *lst;
+		while (tmp && tmp->next)
+			tmp = tmp->next;
+	}
+}
+
+char	*ft_strdup(const char *s1)
+{
+	size_t	str_len;
+	size_t	i;
+	char	*dupstr;
+
+	str_len = ft_strlen(s1);
+	dupstr = (char *)malloc(sizeof(char) * (str_len + 1));
+	if (dupstr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < str_len)
+	{
+		dupstr[i] = s1[i];
+		i++;
+	}
+	dupstr[i] = '\0';
+	return (dupstr);
 }
