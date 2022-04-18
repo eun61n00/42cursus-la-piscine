@@ -3,17 +3,21 @@
 
 int	main(void)
 {
-	int	fd, fd_2;
-	char	*file_dir = "test";
+	int	fd, fd2;
+	char	*file_dir = "test1";
 	char 	*file_dir2 = "test2";
+	char	*ret;
 
 	fd = open(file_dir, O_RDONLY);
-	fd_2 = open(file_dir2, O_RDONLY);
+	fd2 = open(file_dir2, O_RDONLY);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		printf("%s", get_next_line(fd));
-		//printf("%s", get_next_line(fd_2));
-		//puts("==============");
+		ret = get_next_line(fd);
+		printf("%s", ret);
+		free(ret);
+		ret = get_next_line(fd2);
+		printf("%s", ret);
+		free(ret);
 	}
 }

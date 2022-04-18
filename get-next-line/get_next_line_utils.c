@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:26:23 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/17 16:37:35 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/18 13:41:06 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	char	*joinstr;
 
+	if (!s1)
+		return (ft_strdup(s2));
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 	joinstr = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));

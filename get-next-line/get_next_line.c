@@ -3,122 +3,140 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 17:26:30 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/17 11:09:00 by eukwon           ###   ########.fr       */
+/*   Created: 2022/04/17 09:36:06 by eukwon            #+#    #+#             */
+/*   Updated: 2022/04/18 18:12:59 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 # define BUFFER_SIZE 5
 
-int	check_fd(int fd, t_list *fd_lst)
+static t_list	*find_fd(int fd, t_list *fd_list)
 {
 	t_list	*tmp;
 
-	tmp = fd_lst;
+	tmp = fd_list;
 	while (tmp)
 	{
 		if (tmp->fd == fd)
-			return (1);
+			return (tmp);
 		tmp = tmp->next;
 	}
-	return (0);
+	return (NULL);
 }
 
-t_list	*check_init(int fd, t_list *fd_lst)
+static void	del_fd(int fd, t_list **fd_list)
 {
-	t_list	*lst_ptr;
+	t_list	*temp;
+	t_list	*temp2;
 
-	lst_ptr = fd_lst;
-	while (lst_ptr->fd != fd)
-		lst_ptr = lst_ptr->next;
-	if (!(lst_ptr->backup))
+	temp = *fd_list;
+	if (temp->fd == fd)
 	{
-		lst_ptr->backup = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (!(lst_ptr->backup))
-			return (NULL);
+		temp = (*fd_list)->next;
+		free((*fd_list)->backup);
+		free(*fd_list);
+		*fd_list = temp;
+		return ;
 	}
-	if (!(lst_ptr->buff))
+	while (temp->next)
 	{
-		lst_ptr->buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-		if (!(lst_ptr->buff))
-			return (NULL);
+		if (temp->next->fd == fd)
+		{
+			temp2 = temp->next->next;
+			free(temp->next->backup);
+			free(temp->next);
+			temp->next = temp2;
+			return ;
+		}
+		temp = temp->next;
 	}
-	return (lst_ptr);
 }
 
-int	ft_read_buff(int fd, t_list *lst_ptr)
+static int	read_buff(int fd, t_list *cur_fd, t_list **fd_list, char **temp, char *buff)
 {
-	int	ret;
+	int ret;
 
-	ret = read(fd, lst_ptr->buff, BUFFER_SIZE);
-	lst_ptr->buff[ret] = '\0';
-	if (ret <= 0)
+	ret = read(fd, buff, BUFFER_SIZE);
+	if (ret == 0)
 	{
-		free(lst_ptr->backup);
-		free(lst_ptr->buff);
+		free(buff);
+		if (cur_fd->backup)
+		{
+			*temp = cur_fd->backup;
+			cur_fd->backup = NULL;
+			return (-1);
+		}
+		del_fd(fd, fd_list);
+		if (temp)
+			return (-1);
+		else
+			return (0);
+	}
+	else if (ret < 0)
+	{
+		free(buff);
 		return (0);
 	}
-	// else if (ret == 0)
-	// 	return (0);
+	buff[ret] = '\0';
 	return (1);
 }
 
-char	*ft_get_line(int fd, t_list *fd_lst)
+static char	*read_line(int fd, t_list *cur_fd, t_list **fd_list)
 {
+	int		ret;
+	char	*buff;
 	char	*newl;
 	char	*temp;
-	t_list	*lst_ptr;
+	char	*temp2;
 
-	lst_ptr = check_init(fd, fd_lst);
-	if (!lst_ptr)
-		return (NULL);
-	newl = ft_strchr(lst_ptr->backup, '\n');
+	newl = NULL;
+	temp = NULL;
 	while (!newl)
 	{
-		if (!ft_read_buff(fd, lst_ptr))
+		buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (!buff)
 			return (NULL);
-		temp = ft_strjoin(lst_ptr->backup, lst_ptr->buff);
-		if (lst_ptr->backup)
-			free(lst_ptr->backup);
-		if(lst_ptr->buff)
-			free(lst_ptr->buff);
-		lst_ptr->backup = temp;
-		newl = ft_strchr(lst_ptr->backup, '\n');
+		ret = read_buff(fd, cur_fd, fd_list, &temp, buff);
+		if (ret == 0)
+			return (NULL);
+		else if (ret == -1)
+			return (temp);
+		temp = ft_strjoin(cur_fd->backup, buff);
+		free(cur_fd->backup);
+		cur_fd->backup = temp;
+		newl = ft_strchr(cur_fd->backup, '\n');
 	}
-	temp = ft_substr(lst_ptr->backup, 0, (newl - (lst_ptr->backup)) + 1);
-	// if (lst_ptr->backup)
-	// 	free(lst_ptr->backup);
-	// if(lst_ptr->buff)
-	// 	free(lst_ptr->buff);
-	lst_ptr->backup = ft_strchr(lst_ptr->backup, '\n') + 1;
+	temp = ft_substr(cur_fd->backup, 0, (newl - (cur_fd->backup)) + 1);
+	temp2 = ft_strdup(ft_strchr(cur_fd->backup, '\n') + 1);
+	free(cur_fd->backup);
+	cur_fd->backup = temp2;
 	return (temp);
 }
 
 char	*get_next_line(int fd)
 {
-	static t_list	*fd_lst;
+	static t_list	*fd_list;
 	t_list			*new_fd;
+	t_list			*cur_fd;
+	char			*ret;
 
-	if (!fd_lst)
+	cur_fd = find_fd(fd, fd_list);
+	if (!cur_fd)
 	{
-		fd_lst = (t_list *)malloc(sizeof(t_list));
-		if (!fd_lst)
+		new_fd = (t_list *)malloc(sizeof(t_list));
+		if (!new_fd)
 			return (NULL);
-		fd_lst->fd = fd;
-		fd_lst->backup = NULL;
-		fd_lst->buff = NULL;
-		fd_lst->next = NULL;
+		new_fd->fd = fd;
+		new_fd->backup = NULL;
+		new_fd->next = NULL;
+		ft_lstadd_back(&fd_list, new_fd);
+		cur_fd = new_fd;
 	}
-	if (check_fd(fd, fd_lst))
-		return (ft_get_line(fd, fd_lst));
-	new_fd = (t_list *)malloc(sizeof(t_list));
-	new_fd->fd = fd;
-	new_fd->backup = NULL;
-	new_fd->buff = NULL;
-	new_fd->next = NULL;
-	ft_lstlast(fd_lst)->next = new_fd;
-	return (ft_get_line(fd, fd_lst));
+	ret = read_line(fd, cur_fd, &fd_list);
+	if (!ret)
+		return (NULL);
+	return (ret);
 }
