@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:26:02 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/17 16:37:47 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/23 11:45:25 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,15 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
-typedef struct s_list{
-	int				fd;
-	char			*backup;
-	struct s_list	*next;
-}	t_list;
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-void	ft_lstadd_back(t_list **lst, t_list *new);
 char	*ft_strdup(const char *s1);
-int		check_fd(int fd, t_list *fd_lst);
-t_list	*check_init(int fd, t_list *fd_lst);
-int		ft_read_buff(int fd, t_list *lst_ptr);
-char	*ft_get_line(int fd, t_list *fd_lst);
+void	split_nl(char **fd_list_fd, char **temp);
+int		read_buff(int fd, char **fd_list, char **temp);
+char	*read_line(int fd, char **fd_list);
 char	*get_next_line(int fd);
 
 #endif

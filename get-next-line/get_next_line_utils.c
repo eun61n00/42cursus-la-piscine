@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:26:23 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/18 13:41:06 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/19 12:27:58 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,20 +88,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	joinstr[i] = '\0';
 	return (joinstr);
-}
-
-void	ft_lstadd_back(t_list **lst, t_list *new)
-{
-	t_list	*tmp;
-
-	if (*lst == 0)
-		*lst = new;
-	else
-	{
-		tmp = *lst;
-		while (tmp && tmp->next)
-			tmp = tmp->next;
-	}
 }
 
 char	*ft_strdup(const char *s1)
