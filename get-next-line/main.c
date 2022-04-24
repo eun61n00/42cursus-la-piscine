@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 12:39:38 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/23 11:57:31 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/24 12:14:26 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 {
 	int		fd;
 	int		fd2;
-	char	*file_dir = "./gnlTester/files/41_no_nl";
+	char	*file_dir = "./gnlTester/files/41_with_nl";
 	char	*file_dir2 = "test1";
 	char	*ret;
 
@@ -30,4 +30,6 @@ int	main(void)
 		printf("%s", ret);
 		free(ret);
 	}
+	system("leaks a.out");
+	return (0);
 }

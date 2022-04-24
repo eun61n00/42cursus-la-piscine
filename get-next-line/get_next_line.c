@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 18:24:49 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/23 12:02:46 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/24 12:10:18 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	split_nl(char **fd_list_fd, char **temp)
 	char	*temp2;
 
 	nl = ft_strchr((*fd_list_fd), '\n');
+	if (!nl)
+		return ;
 	*temp = ft_substr((*fd_list_fd), 0, (nl - (*fd_list_fd)) + 1);
 	temp2 = ft_strdup(ft_strchr((*fd_list_fd), '\n') + 1);
 	free((*fd_list_fd));
@@ -36,12 +38,9 @@ int	read_buff(int fd, char **fd_list, char **temp)
 	if (ret <= 0)
 	{
 		free(buff);
-		if (fd_list[fd])
+		if (ft_strlen(fd_list[fd]) > 0)
 		{
 			split_nl(&fd_list[fd], temp);
-			// *temp = ft_strdup(fd_list[fd]);
-			// free(fd_list[fd]);
-			// fd_list[fd] = NULL;
 			return (0);
 		}
 		else
@@ -80,10 +79,6 @@ char	*read_line(int fd, char **fd_list)
 		else
 			newl = ft_strchr(fd_list[fd], '\n');
 	}
-	temp = ft_substr(fd_list[fd], 0, (newl - fd_list[fd]) + 1);
-	// temp2 = ft_strdup(ft_strchr(fd_list[fd], '\n') + 1);
-	// free(fd_list[fd]);
-	// fd_list[fd] = temp2;
 	split_nl(&fd_list[fd], &temp);
 	return (temp);
 }
@@ -93,7 +88,7 @@ char	*get_next_line(int fd)
 	char		*ret;
 	static char	*fd_list[OPEN_MAX + 1];
 
-	if (fd < 0 || fd > OPEN_MAX)
+	if (fd < 0)
 		return (NULL);
 	if (BUFFER_SIZE < 0)
 		return (NULL);
