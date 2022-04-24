@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 18:24:49 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/23 11:47:28 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/23 12:02:46 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ int	read_buff(int fd, char **fd_list, char **temp)
 	if (ret <= 0)
 	{
 		free(buff);
-		if (ft_strlen(fd_list[fd]) > 0)
+		if (fd_list[fd])
 		{
-			// split_nl(&fd_list[fd], temp);
-			*temp = ft_strdup(fd_list[fd]);
-			free(fd_list[fd]);
-			fd_list[fd] = NULL;
+			split_nl(&fd_list[fd], temp);
+			// *temp = ft_strdup(fd_list[fd]);
+			// free(fd_list[fd]);
+			// fd_list[fd] = NULL;
 			return (0);
 		}
 		else
@@ -81,10 +81,10 @@ char	*read_line(int fd, char **fd_list)
 			newl = ft_strchr(fd_list[fd], '\n');
 	}
 	temp = ft_substr(fd_list[fd], 0, (newl - fd_list[fd]) + 1);
-	temp2 = ft_strdup(ft_strchr(fd_list[fd], '\n') + 1);
-	free(fd_list[fd]);
-	fd_list[fd] = temp2;
-	// split_nl(&fd_list[fd], &temp);
+	// temp2 = ft_strdup(ft_strchr(fd_list[fd], '\n') + 1);
+	// free(fd_list[fd]);
+	// fd_list[fd] = temp2;
+	split_nl(&fd_list[fd], &temp);
 	return (temp);
 }
 
