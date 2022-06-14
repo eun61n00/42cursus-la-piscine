@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:26:02 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/24 11:51:09 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/25 11:37:25 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# define FD_MAX 256
 
 # include <limits.h>
 # include <stdlib.h>

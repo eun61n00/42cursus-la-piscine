@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 18:24:49 by eukwon            #+#    #+#             */
-/*   Updated: 2022/04/24 21:54:26 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/04/26 14:05:39 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char	*read_line(int fd, char **fd_list)
 char	*get_next_line(int fd)
 {
 	char		*ret;
-	static char	*fd_list[OPEN_MAX];
+	static char	*fd_list[FD_MAX];
 
 	if (fd < 0)
 		return (NULL);
