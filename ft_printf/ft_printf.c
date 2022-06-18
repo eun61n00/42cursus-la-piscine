@@ -6,29 +6,18 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 14:32:25 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/18 16:58:53 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/18 17:13:26 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	check_type(int *ret, char c, va_list *ap)
+static void	check_type2(int *ret, char c, va_list *ap)
 {
-	int	value;
-	char *chr_ptr;
+	int		value;
+	char	*chr_ptr;
 
-	if (c == 'c')
-		*ret += ft_putchar(va_arg(*ap, int));
-	else if (c == 's')
-		*ret += ft_putstr(va_arg(*ap, char *));
-	else if (c == 'p')
-	{
-		*ret += ft_putstr("0x");
-		*ret += ft_putaddr((va_arg(*ap, void *)), "0123456789abcdef");
-	}
-	else if (c == 'd')
-		*ret += ft_putnbr_base(va_arg(*ap, int), "0123456789");
-	else if (c == 'i')
+	if (c == 'i')
 	{
 		value = va_arg(*ap, int);
 		chr_ptr = ft_itoa(value);
@@ -46,6 +35,23 @@ static void	check_type(int *ret, char c, va_list *ap)
 		*ret += ft_putchar('%');
 	else
 		return ;
+}
+
+static void	check_type(int *ret, char c, va_list *ap)
+{
+	if (c == 'c')
+		*ret += ft_putchar(va_arg(*ap, int));
+	else if (c == 's')
+		*ret += ft_putstr(va_arg(*ap, char *));
+	else if (c == 'p')
+	{
+		*ret += ft_putstr("0x");
+		*ret += ft_putaddr((va_arg(*ap, void *)), "0123456789abcdef");
+	}
+	else if (c == 'd')
+		*ret += ft_putnbr_base(va_arg(*ap, int), "0123456789");
+	else
+		check_type2(ret, c, ap);
 }
 
 static void	parse(int *ret, const char *string, va_list *ap)
@@ -68,21 +74,12 @@ static void	parse(int *ret, const char *string, va_list *ap)
 
 int	ft_printf(const char *string, ...)
 {
-	va_list ap;
+	va_list	ap;
 	int		ret;
 
 	ret = 0;
 	va_start(ap, string);
 	parse(&ret, string, &ap);
 	va_end(ap);
-
-	return ret;
+	return (ret);
 }
-
-// int main(void)
-// {
-// 	long long a = LONG_MIN;
-// 	long long b = LONG_MAX;
-// 	printf("return: %d\n", ft_printf("%p %p\n", &a, &b));
-// 	printf("return: %d\n", printf("%p %p\n", &a, &b));
-// }

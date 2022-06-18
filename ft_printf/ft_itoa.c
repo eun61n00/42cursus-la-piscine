@@ -6,11 +6,11 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:20:54 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/18 16:04:03 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/18 17:04:21 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
 size_t	get_digit(const int n)
 {
@@ -19,7 +19,7 @@ size_t	get_digit(const int n)
 
 	digit = 0;
 	if (n == 0)
-		return 1;
+		return (1);
 	else if (n < 0)
 	{
 		unsigned_n = -n;

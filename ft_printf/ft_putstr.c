@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:33:28 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/18 13:57:40 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/18 17:04:46 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int	ft_putstr(const char *str)
 		ft_putchar(*str++);
 		ret++;
 	}
-	return ret;
+	return (ret);
 }

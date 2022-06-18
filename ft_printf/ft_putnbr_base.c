@@ -6,11 +6,11 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:17:36 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/18 16:58:57 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/18 17:07:11 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
 static unsigned int	to_unsigned_int(int *ret, const int nbr)
 {
@@ -27,7 +27,8 @@ static unsigned int	to_unsigned_int(int *ret, const int nbr)
 	return (nbr_u);
 }
 
-static void	write_nbr_base(int *ret, uintptr_t nbr_u, const char *base, const int base_num)
+static void	write_nbr_base(int *ret, uintptr_t nbr_u, \
+	const char *base, const int base_num)
 {
 	if (nbr_u / base_num != 0)
 	{
@@ -72,8 +73,8 @@ int	ft_putnbr_base_unsigned(const int nbr, const char *base)
 
 int	ft_putaddr(const void *ptr_addr, const char *base)
 {
-	int base_num;
-	int ret;
+	int	base_num;
+	int	ret;
 
 	ret = 0;
 	base_num = 0;
