@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:34:06 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/16 16:36:46 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/18 16:56:30 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,20 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 
-int		ft_printf(const char *string, ...);
-void	parse(const char *string, va_list ap);
-void	check_type(char c, va_list ap);
-void	print_char(va_list ap);
-void	print_str(va_list ap);
-void	print_ptr(va_list ap);
-
-void	write_nbr(int n);
-void	ft_putnbr(int n);
-void	ft_putchar(char c);
-int		ft_strlen(char *str);
-void	ft_putstr(char *str);
-
+int					ft_printf(const char *string, ...);
+void				write_nbr(const int n);
+int					ft_putchar(const char c);
+size_t				ft_strlen(const char *str);
+int					ft_putstr(const char *str);
+char				*ft_strdup(const char *s1);
+int					ft_isdigit(const char c);
+int					ft_atoi(const char *str);
+int					ft_putnbr_base(const int nbr, const char *base);
+int					ft_putnbr_base_unsigned(const int nbr, const char *base);
+int					ft_putaddr(const void *ptr_addr, const char *base);
+char				*ft_itoa(const int n);
+size_t				get_digit(const int n);
 
 #endif
