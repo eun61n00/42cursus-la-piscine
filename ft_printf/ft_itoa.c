@@ -6,13 +6,13 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:20:54 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/19 12:50:49 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/19 15:40:19 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	get_digit(const int n)
+static size_t	get_digit(const int n)
 {
 	unsigned int	unsigned_n;
 	size_t			digit;

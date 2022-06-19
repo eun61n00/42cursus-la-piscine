@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 15:32:00 by eukwon            #+#    #+#              #
-#    Updated: 2022/06/19 12:59:31 by eukwon           ###   ########.fr        #
+#    Updated: 2022/06/19 16:38:54 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ SRCS = \
 ./ft_isdigit.c \
 ./ft_itoa.c \
 ./ft_printf.c \
-./ft_putchar.c \
+./ft_putchar_pf.c \
 ./ft_putnbr_base.c \
-./ft_putstr.c \
+./ft_putstr_pf.c \
 ./ft_strdup.c \
 ./ft_strlen.c
 OBJS = $(SRCS:.c=.o)

@@ -6,21 +6,19 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 14:32:25 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/19 15:28:22 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/19 17:32:15 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	check_type2(int *ret, char c, va_list *ap)
+static int	check_type2(int *ret, char c, va_list *ap)
 {
-	int		value;
 	char	*chr_ptr;
 
 	if (c == 'i')
 	{
-		value = va_arg(*ap, int);
-		chr_ptr = ft_itoa(value);
+		chr_ptr = ft_itoa(va_arg(*ap, int));
 		*ret += ft_putstr_pf(chr_ptr);
 		free(chr_ptr);
 	}
@@ -33,10 +31,11 @@ static void	check_type2(int *ret, char c, va_list *ap)
 	else if (c == '%')
 		*ret += ft_putchar_pf('%');
 	else
-		return ;
+		return (-1);
+	return (0);
 }
 
-static void	check_type(int *ret, char c, va_list *ap)
+static int	check_type(int *ret, char c, va_list *ap)
 {
 	if (c == 'c')
 		*ret += ft_putchar_pf(va_arg(*ap, int));
@@ -50,7 +49,8 @@ static void	check_type(int *ret, char c, va_list *ap)
 	else if (c == 'd')
 		*ret += ft_putnbr_base(va_arg(*ap, int), "0123456789");
 	else
-		check_type2(ret, c, ap);
+		return (check_type2(ret, c, ap));
+	return (0);
 }
 
 static void	parse(int *ret, const char *string, va_list *ap)
@@ -58,14 +58,12 @@ static void	parse(int *ret, const char *string, va_list *ap)
 	while (*string)
 	{
 		if (*string != '%')
-		{
-			ft_putchar_pf(*string);
-			*ret += 1;
-		}
+			*ret += ft_putchar_pf(*string);
 		else
 		{
 			string++;
-			check_type(ret, *string, ap);
+			if (check_type(ret, *string, ap) == -1)
+				return ;
 		}
 		string++;
 	}

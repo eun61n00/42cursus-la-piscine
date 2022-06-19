@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 15:34:06 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/19 15:25:03 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/19 15:40:16 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	*ft_strdup(const char *s1);
 int		ft_putnbr_base(const int nbr, const char *base);
 int		ft_putnbr_base_unsigned(const int nbr, const char *base);
 int		ft_putaddr(const void *ptr_addr, const char *base);
-size_t	get_digit(const int n);
 char	*ft_itoa(const int n);
 
 #endif
