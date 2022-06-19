@@ -6,12 +6,11 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 14:32:25 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/19 12:44:16 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/06/19 15:28:22 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "stdio.h"
 
 static void	check_type2(int *ret, char c, va_list *ap)
 {
@@ -22,9 +21,8 @@ static void	check_type2(int *ret, char c, va_list *ap)
 	{
 		value = va_arg(*ap, int);
 		chr_ptr = ft_itoa(value);
-		ft_putstr(chr_ptr);
+		*ret += ft_putstr_pf(chr_ptr);
 		free(chr_ptr);
-		*ret += get_digit(value);
 	}
 	else if (c == 'u')
 		*ret += ft_putnbr_base_unsigned(va_arg(*ap, int), "0123456789");
@@ -33,7 +31,7 @@ static void	check_type2(int *ret, char c, va_list *ap)
 	else if (c == 'x')
 		*ret += ft_putnbr_base_unsigned(va_arg(*ap, int), "0123456789abcdef");
 	else if (c == '%')
-		*ret += ft_putchar('%');
+		*ret += ft_putchar_pf('%');
 	else
 		return ;
 }
@@ -41,12 +39,12 @@ static void	check_type2(int *ret, char c, va_list *ap)
 static void	check_type(int *ret, char c, va_list *ap)
 {
 	if (c == 'c')
-		*ret += ft_putchar(va_arg(*ap, int));
+		*ret += ft_putchar_pf(va_arg(*ap, int));
 	else if (c == 's')
-		*ret += ft_putstr(va_arg(*ap, char *));
+		*ret += ft_putstr_pf(va_arg(*ap, char *));
 	else if (c == 'p')
 	{
-		*ret += ft_putstr("0x");
+		*ret += ft_putstr_pf("0x");
 		*ret += ft_putaddr((va_arg(*ap, void *)), "0123456789abcdef");
 	}
 	else if (c == 'd')
@@ -61,7 +59,7 @@ static void	parse(int *ret, const char *string, va_list *ap)
 	{
 		if (*string != '%')
 		{
-			ft_putchar(*string);
+			ft_putchar_pf(*string);
 			*ret += 1;
 		}
 		else

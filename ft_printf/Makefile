@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 15:32:00 by eukwon            #+#    #+#              #
-#    Updated: 2022/06/19 09:54:22 by eukwon           ###   ########.fr        #
+#    Updated: 2022/06/19 12:59:31 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ ARFLAGS = crs
 NAME = libftprintf.a
 INCLUDES = ./ft_printf.h
 SRCS = \
-./ft_atoi.c \
 ./ft_isdigit.c \
 ./ft_itoa.c \
 ./ft_printf.c \
