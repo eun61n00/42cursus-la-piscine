@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 15:32:00 by eukwon            #+#    #+#              #
-#    Updated: 2022/06/18 16:36:49 by eukwon           ###   ########.fr        #
+#    Updated: 2022/06/19 09:54:22 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,9 +27,6 @@ SRCS = \
 ./ft_strdup.c \
 ./ft_strlen.c
 OBJS = $(SRCS:.c=.o)
-
-%.o : %.c
-	${CC} ${CFLAGS} -c $^ -o $@ -I ${INCLUDES}
 
 all : $(NAME)
 
