@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/30 14:17:18 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/07/11 13:44:43 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,8 @@ int	main(int argc, char *argv[])
 {
 	int	num_arr[] = {3, 4, 1, 5, 8, 9, 2};
 	quick_sort(num_arr, 0, 6);
-
+	for (int i = 0; i <= 6; i++)
+	{
+		printf("%d ", num_arr[i]);
+	}
 }
