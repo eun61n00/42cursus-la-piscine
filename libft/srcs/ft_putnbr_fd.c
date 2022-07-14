@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 11:11:45 by eukwon            #+#    #+#             */
-/*   Updated: 2022/03/18 14:59:26 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/07/14 10:40:43 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./includes/libft.h"
 #include <unistd.h>
 
 void	write_nbr(int n, int fd)

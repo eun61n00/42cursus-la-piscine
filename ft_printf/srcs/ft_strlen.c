@@ -6,11 +6,11 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:33:02 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/17 11:33:09 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/07/14 10:41:56 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "./includes/ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {

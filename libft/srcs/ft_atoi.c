@@ -6,11 +6,11 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 12:02:20 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/18 11:21:11 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/07/14 10:38:45 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./includes/libft.h"
 #include "stdio.h"
 
 static int	is_whitespace(char c)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 14:32:25 by eukwon            #+#    #+#             */
-/*   Updated: 2022/06/19 17:32:15 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/07/14 10:41:56 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "./includes/ft_printf.h"
 
 static int	check_type2(int *ret, char c, va_list *ap)
 {

@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/14 10:09:44 by eukwon            #+#    #+#              #
+#    Updated: 2022/07/14 10:37:29 by eukwon           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 CC = cc
@@ -9,7 +21,7 @@ ARFLAGS = -crs
 RM = rm
 RMFLAG = -rf
 
-INCLUDE_DIR = ./include
+INCLUDE_DIR = ./includes
 
 SRC_DIR = ./srcs
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_NAME))
@@ -89,7 +101,7 @@ clean :
 	$(RM) $(RMFLAG) $(OBJ_DIR) $(NAME)
 
 fclean : clean
-	$(RM) $(RMFLAG) -f $(NAME)
+	$(RM) $(RMFLAG) -fs $(NAME)
 
 re : fclean all
 
