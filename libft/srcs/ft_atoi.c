@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eunbin <eunbin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 12:02:20 by eukwon            #+#    #+#             */
-/*   Updated: 2022/03/21 17:18:47 by eunbin           ###   ########.fr       */
+/*   Updated: 2022/06/18 11:21:11 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 static int	is_whitespace(char c)
 {
@@ -48,4 +49,10 @@ int	ft_atoi(const char *str)
 		}
 	}
 	return (sign * (int)ret);
+}
+
+int main(void)
+{
+	printf("executed.");
+	return (0);
 }
