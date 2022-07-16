@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:09:44 by eukwon            #+#    #+#              #
-#    Updated: 2022/07/14 10:37:29 by eukwon           ###   ########.fr        #
+#    Updated: 2022/07/16 13:09:16 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ ft_lstmap.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 OBJ_NAME_BONUS = $(SRC_NAME_BONUS:.c=.o)
-OBJ_DIR = ./obj
+OBJ_DIR = ./objs
 OBJ = $(addprefix $(OBJ_DIR)/, $(OBJ_NAME))
 OBJ_BONUS = $(addprefix $(OBJ_DIR)/, $(OBJ_NAME_BONUS))
 
@@ -101,7 +101,7 @@ clean :
 	$(RM) $(RMFLAG) $(OBJ_DIR) $(NAME)
 
 fclean : clean
-	$(RM) $(RMFLAG) -fs $(NAME)
+	$(RM) $(RMFLAG) $(NAME)
 
 re : fclean all
 

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 17:24:04 by eukwon            #+#    #+#             */
-/*   Updated: 2022/07/14 11:24:07 by eukwon           ###   ########.fr       */
+/*   Created: 2022/06/17 11:36:08 by eukwon            #+#    #+#             */
+/*   Updated: 2022/06/18 17:03:56 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
-
-int	ft_lstsize(t_list *lst)
+int	ft_isdigit(const char c)
 {
-	int		size;
-	t_list	*tmp;
-
-	if (!lst)
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
 		return (0);
-	size = 1;
-	tmp = lst;
-	while (tmp->next)
-	{
-		size++;
-		tmp = tmp->next;
-	}
-	return (size);
 }

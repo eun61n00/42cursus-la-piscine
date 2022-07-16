@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 17:24:04 by eukwon            #+#    #+#             */
-/*   Updated: 2022/07/14 11:24:07 by eukwon           ###   ########.fr       */
+/*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
+/*   Updated: 2022/07/14 11:47:23 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	ft_lstsize(t_list *lst)
-{
-	int		size;
-	t_list	*tmp;
+#include "../lib/libft/includes/libft.h"
+#include "../lib/ft_printf/includes/ft_printf.h"
 
-	if (!lst)
-		return (0);
-	size = 1;
-	tmp = lst;
-	while (tmp->next)
-	{
-		size++;
-		tmp = tmp->next;
-	}
-	return (size);
-}
+#endif
+
