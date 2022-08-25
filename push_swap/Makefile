@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/07/16 13:17:49 by eukwon           ###   ########.fr        #
+#    Updated: 2022/07/16 14:22:53 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,17 +29,21 @@ OBJS_DIR = ./objs
 LIBFT = libft.a
 LIBFT_DIR = ./lib/libft
 LIBFT_FILE = $(LIBFT_DIR)/$(LIBFT)
+LIBFT_FILE = $(LIBFT_DIR)/$(LIBFT)
 LIBFT_FLAGS = -L $(LIBFT_DIR) -lft
 LIBFT_INC_DIR = $(LIBFT_DIR)/includes
 
-# libft
+# ft_printf
 FT_PRINTF = libftprintf.a
 FT_PRINTF_DIR = ./lib/ft_printf
 FT_PRINTF_FILE = $(FT_PRINTF_DIR)/$(FT_PRINTF)
 FT_PRINTF_FLAGS = -L $(FT_PRINTF_DIR) -lft
 FT_PRINTF_INC_DIR = $(FT_PRINTF_DIR)/includes
 
-SRCS = $(addprefix $(SRCS_DIR)/, push_swap.c)
+SRCS = $(addprefix $(SRCS_DIR)/, \
+	main.c\
+	swap.c\
+	push.c)
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 # Color
@@ -64,12 +68,12 @@ all : $(NAME)
 $(NAME) : $(OBJS) libft ft_printf
 	@printf "$(LF)🚀 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$(NAME)'s Object files $(FG_TEXT)!"
 	@printf "$(CRLF)📚 $(FG_TEXT)Archiving! $(FG_TEXT_PRIMARY)$@"
-	$(CC) $(CFLAG) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(FT_PRINTF_DIR)/$(FT_PRINTF) -I $(INCLUDES_DIR) $(LIBFT_FLAGS) $(FT_PRINTF_FLAGS) -o $(NAME)
+	$(CC) $(CFLAG) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(FT_PRINTF_DIR)/$(FT_PRINTF) -I $(INCLUDES_DIR) $(LIBFT_FLAGS) $(FT_PRINTF_FLAGS) -o $(NAME) -g
 	@printf "$(LF)🎉 $(FG_TEXT)Successfully Archived $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)!\n"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c libft ft_printf
 	@mkdir $(OBJS_DIR) 2> /dev/null || true
-	$(CC) $(CFLAG) -c $< -o $@ -I $(INCLUDES_DIR) -I $(LIBFT_INC_DIR) -I $(FT_PRINTF_INC_DIR)
+	$(CC) $(CFLAG) -c $< -o $@ -I $(INCLUDES_DIR) -I $(LIBFT_INC_DIR) -I $(FT_PRINTF_INC_DIR) -g
 	@printf "$(LF)🚧 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)from $(FGma_TEXT_PRIMARY)$<"
 
 libft :

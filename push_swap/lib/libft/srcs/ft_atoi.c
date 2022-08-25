@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 12:02:20 by eukwon            #+#    #+#             */
-/*   Updated: 2022/07/14 11:22:43 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/07/16 13:29:26 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,4 @@ int	ft_atoi(const char *str)
 		}
 	}
 	return (sign * (int)ret);
-}
-
-int main(void)
-{
-	printf("executed.");
-	return (0);
 }
