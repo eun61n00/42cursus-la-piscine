@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 14:17:56 by eukwon            #+#    #+#             */
-/*   Updated: 2022/07/16 14:22:53 by eukwon           ###   ########.fr       */
+/*   Created: 2022/08/27 16:27:15 by eukwon            #+#    #+#             */
+/*   Updated: 2022/08/27 18:19:25 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	*push(int *top_a, int *top_b)
+#include "../includes/push_swap.h"
+
+char ** parsing(int argc, char *argv[])
 {
-	*++top_a = *top_b;
-	top_b--;
-	return (top_a, top_b);
+	char **split_list;
+	t_num_stack stack;
+
+	argc--;
+	while (argc > 0)
+	{
+		split_list = ft_split(*argv);
+	}
+	char **linked_list;
+
+	linked_list = ft_split(argc, ' ');
+
+	return (linked_list);
 }

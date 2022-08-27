@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/07/16 14:22:53 by eukwon           ###   ########.fr        #
+#    Updated: 2022/08/27 16:25:42 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,8 @@ FT_PRINTF_INC_DIR = $(FT_PRINTF_DIR)/includes
 
 SRCS = $(addprefix $(SRCS_DIR)/, \
 	main.c\
-	swap.c\
-	push.c)
+	check_error.c\
+	)
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 # Color
