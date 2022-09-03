@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/08/27 16:25:42 by eukwon           ###   ########.fr        #
+#    Updated: 2022/09/03 18:14:27 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-# CFLAG = -Wall -Wextra -Werror
+CFLAG = -Wall -Wextra -Werror
 
 AR = ar
 ARFLAG = -crs
@@ -43,22 +43,20 @@ FT_PRINTF_INC_DIR = $(FT_PRINTF_DIR)/includes
 SRCS = $(addprefix $(SRCS_DIR)/, \
 	main.c\
 	check_error.c\
-	)
+	parsing.c\
+	swap.c\
+	push.c\
+	stack_poerations.c\
+)
+
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 
 # Color
-CL_BOLD =\e[1m
-CL_DIM =\e[2m
-CL_UDLINE = \e[4m
-
 NO_COLOR = \e[0m
 
-BG_TEXT = \e[48;2;45;55;72m
-BG_BLACK = \e[48;2;30;31;33m
-
-FG_WHITE = $(NO_COLOR)\e[0;37m
-FG_TEXT = $(NO_COLOR)\e[38;2;189;147;249m
-FG_TEXT_PRIMARY = $(NO_COLOR)$(CL_BOLD)\e[38;2;255;121;198m
+LIGHT_GREEN = \e[1;32;189;147;249m
+GREEN = \e[0;32;189;147;249m
+LIGHT_GRAY = \e[1;32;255;121;198
 
 LF = \e[1K\r$(NO_COLOR)
 CRLF = \n$(LF)
@@ -66,15 +64,15 @@ CRLF = \n$(LF)
 all : $(NAME)
 
 $(NAME) : $(OBJS) libft ft_printf
-	@printf "$(LF)🚀 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$(NAME)'s Object files $(FG_TEXT)!"
-	@printf "$(CRLF)📚 $(FG_TEXT)Archiving! $(FG_TEXT_PRIMARY)$@"
+	@printf "$(LF)🚀 $(LIGHT_GREEN)Successfully Created $(GREEN)$(NAME)'s Object files!"
+	@printf "$(CRLF)📚 $(LIGHT_GREEN)Archiving! $(GREEN)$@${CRLF}"
 	$(CC) $(CFLAG) $(OBJS) $(LIBFT_DIR)/$(LIBFT) $(FT_PRINTF_DIR)/$(FT_PRINTF) -I $(INCLUDES_DIR) $(LIBFT_FLAGS) $(FT_PRINTF_FLAGS) -o $(NAME) -g
-	@printf "$(LF)🎉 $(FG_TEXT)Successfully Archived $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)!\n"
+	@printf "$(LF)🎉 $(LIGHT_GREEN)Successfully Archived $(GREEN)$@ $(LIGHT_GREEN)!${CRLF}"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c libft ft_printf
 	@mkdir $(OBJS_DIR) 2> /dev/null || true
 	$(CC) $(CFLAG) -c $< -o $@ -I $(INCLUDES_DIR) -I $(LIBFT_INC_DIR) -I $(FT_PRINTF_INC_DIR) -g
-	@printf "$(LF)🚧 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)from $(FGma_TEXT_PRIMARY)$<"
+	@printf "$(LF)🚧 $(LIGHT_GREEN)Create $(GREEN)$@ $(LIGHT_GREEN)from $(GREEN)$<${CRLF}"
 
 libft :
 	$(MAKE) -C ./lib/libft all
@@ -85,12 +83,12 @@ ft_printf:
 clean :
 	@$(MAKE) -C ./lib/libft clean
 	@$(MAKE) -C ./lib/ft_printf clean
-	@$(RM) $(RMFLAG) $(OBJS)
-	@printf "$(LF)🧹 $(FG_TEXT)Cleaning $(FG_TEXT_PRIMARY)$(NAME)'s Object files...\n"
+	@${RM} $(RMFLAG) $(OBJS)
+	@printf "$(LF)🧹 $(LIGHT_GREEN)Cleaning $(GREEN)$(NAME)'s Object files...${CRLF}"
 
 fclean : clean
-	@$(RM) $(RMFLAG) $(NAME)
-	@printf "$(LF)🧹 $(FG_TEXT)Cleaning $(FG_TEXT_PRIMARY)$(NAME)\n"
+	@${RM} $(RMFLAG) $(NAME)
+	@printf "$(LF)🧹 $(LIGHT_GREEN)Cleaning $(GREEN)$(NAME)${CRLF}"
 
 re : fclean all
 

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 16:23:25 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/03 16:15:22 by eukwon           ###   ########.fr       */
+/*   Created: 2022/09/03 10:37:39 by eukwon            #+#    #+#             */
+/*   Updated: 2022/09/03 18:15:09 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int check_err(int argc, char *argv[])
+void	sa(t_num_stack *a)
 {
-	char **split_list;
-	if (argc == 1)
-		return (-1);
-	else if (argc == 2)
-	{
-		argv++;
-		split_list = ft_split(*argv, ' ');
-		argv = split_list;
-	}
+	int	tmp;
 
-	return (0);
+	tmp = a->data;
+	a->data = a->next->data;
+	a->next->data = tmp;
+}
+
+void	sb(t_num_stack *b)
+{
+	int tmp;
+
+	tmp = b->data;
+	b->data = b->next->data;
+	b->next->data = tmp;
 }

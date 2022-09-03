@@ -3,28 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 16:27:15 by eukwon            #+#    #+#             */
-/*   Updated: 2022/08/27 18:19:25 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/03 17:17:51 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-char ** parsing(int argc, char *argv[])
+t_num_stack	*parsing(int argc, char *argv[])
 {
-	char **split_list;
-	t_num_stack stack;
+	t_num_stack *a;
 
-	argc--;
-	while (argc > 0)
+	argv++;
+	while (*argv)
 	{
-		split_list = ft_split(*argv);
+		add_tail(&a, new_stack(ft_atoi(*argv++)));
+		argc--;
 	}
-	char **linked_list;
-
-	linked_list = ft_split(argc, ' ');
-
-	return (linked_list);
+	return (a);
 }

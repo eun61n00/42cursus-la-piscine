@@ -1,46 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/03 18:13:11 by eukwon           ###   ########.fr       */
+/*   Created: 2022/09/03 10:37:45 by eukwon            #+#    #+#             */
+/*   Updated: 2022/09/03 18:23:20 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	pa(t_num_stack *a, t_num_stack *b)
 {
-	t_num_stack *a;
-	t_num_stack *b;
-	t_num_stack *test;
+	t_num_stack	*tmp;
 
+	if (b->data == NULL)
+		return ;
+	tmp = a->next;
+	a->next = b;
+	b = b->next;
+	a->next->next = tmp;
+}
 
-	// check error
-	if (check_err(argc, argv) == -1)
-	{
-		ft_printf("Error\n");
-		return (-1);
-	}
+void	pb(t_num_stack *a, t_num_stack *b)
+{
+	t_num_stack *tmp;
 
-	// parsing
-	a = parsing(argc, argv);
-	b = (t_num_stack *)malloc(sizeof(t_num_stack));
+	if (a->data == NULL)
+		return;
 	if (b == NULL)
-		return (-1);
-	b->data = -1;
-	b->next = NULL;
-	test = a;
-	sa(a);
-	pb(a, b);
-	for (int i = argc; i > 1; i--)
-	{
-		ft_printf("%d ", test->data);
-		test++;
-	}
-
-	return (0);
+		b = new_stack(a->data);
+	tmp = b->next;
+	b->next = a;
+	a = a->next;
+	b->next->next = tmp;
 }
