@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/09/03 18:14:27 by eukwon           ###   ########.fr        #
+#    Updated: 2022/09/04 09:49:20 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	parsing.c\
 	swap.c\
 	push.c\
-	stack_poerations.c\
+	stack_operations.c\
 )
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))

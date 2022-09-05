@@ -58,3 +58,4 @@ dkms.conf
 .vscode/
 *.sh
 .DS_Store
+.idea/

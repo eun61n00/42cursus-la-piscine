@@ -3,29 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:37:39 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/03 18:15:09 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/04 10:43:12 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_num_stack *a)
+void	sa(t_num_stack **a)
 {
-	int	tmp;
+	t_num_stack *tmp;
 
-	tmp = a->data;
-	a->data = a->next->data;
-	a->next->data = tmp;
+	tmp = (*a)->next;
+	(*a)->next = (*a)->next->next;
+	tmp->next = (*a);
+	(*a) = tmp;
 }
 
-void	sb(t_num_stack *b)
+void	sb(t_num_stack **b)
 {
-	int tmp;
+	t_num_stack *tmp;
 
-	tmp = b->data;
-	b->data = b->next->data;
-	b->next->data = tmp;
+	tmp = (*b)->next;
+	(*b)->next = (*b)->next->next;
+	tmp->next = (*b);
+	(*b) = tmp;
 }
