@@ -6,21 +6,12 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/05 15:23:22 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/06 12:58:28 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	test(t_num_stack *stack)
-{
-	while (stack)
-	{
-		ft_printf("%d ", stack->data);
-		stack = stack->next;
-	}
-	ft_printf("\n");
-}
 
 int	main(int argc, char *argv[])
 {
@@ -45,15 +36,8 @@ int	main(int argc, char *argv[])
 	b->next = NULL;
 
 	sa(&a);
-	test_stack = a;
-	test(test_stack);
-
 	pb(&a, &b);
-	test_stack = b;
-	test(test_stack);
-
 	pa(&a, &b);
-	test_stack = a;
-	test(test_stack);
+	ra(&a);
 	return (0);
 }
