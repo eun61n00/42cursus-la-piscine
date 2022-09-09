@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/04 10:49:22 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/09 11:06:59 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ t_num_stack	*parsing(char *argv[]);
 void	sa(t_num_stack **a);
 void	pa(t_num_stack **a, t_num_stack **b);
 void	pb(t_num_stack **a, t_num_stack **b);
+
+void	ra(t_num_stack **a);
+void	rra(t_num_stack **a);
 
 t_num_stack	*new_stack(int data);
 t_num_stack	*get_tail(t_num_stack *stack);

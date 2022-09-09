@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/09/04 09:49:20 by eukwon           ###   ########.fr        #
+#    Updated: 2022/09/09 11:08:48 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	parsing.c\
 	swap.c\
 	push.c\
+	rotate.c\
 	stack_operations.c\
 )
 

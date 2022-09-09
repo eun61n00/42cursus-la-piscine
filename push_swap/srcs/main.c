@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/06 12:58:28 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/09 11:07:08 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char *argv[])
 {
 	t_num_stack *a;
 	t_num_stack *b;
-	t_num_stack *test_stack;
 
 
 	// check error
