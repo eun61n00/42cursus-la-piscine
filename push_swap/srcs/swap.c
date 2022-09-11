@@ -6,28 +6,36 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:37:39 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/04 10:43:12 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/11 15:56:56 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sa(t_num_stack **a)
+void	sa(t_double_linked_list **a)
 {
-	t_num_stack *tmp;
+	t_double_linked_list_node *tmp;
+	t_double_linked_list_node *tmp2;
 
-	tmp = (*a)->next;
-	(*a)->next = (*a)->next->next;
-	tmp->next = (*a);
-	(*a) = tmp;
+	tmp = pop(a);
+	tmp2 = pop(a);
+	if (!tmp || !tmp2)
+		return ;
+	add_double_linked_list(a, tmp);
+	add_double_linked_list(a, tmp2);
+	ft_printf("sa\n");
 }
 
-void	sb(t_num_stack **b)
+void	sb(t_double_linked_list **b)
 {
-	t_num_stack *tmp;
+	t_double_linked_list_node *tmp;
+	t_double_linked_list_node *tmp2;
 
-	tmp = (*b)->next;
-	(*b)->next = (*b)->next->next;
-	tmp->next = (*b);
-	(*b) = tmp;
+	tmp = pop(b);
+	tmp2 = pop(b);
+	if (!tmp || !tmp2)
+		return ;
+	add_double_linked_list(b, tmp);
+	add_double_linked_list(b, tmp2);
+	ft_printf("sb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/09 11:06:59 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/11 15:15:41 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,33 @@
 #include "../lib/libft/includes/libft.h"
 #include "../lib/ft_printf/includes/ft_printf.h"
 
-typedef struct s_num_stack {
+typedef struct s_double_linked_list_node {
+	struct s_double_linked_list_node *prev;
 	int data;
-	struct s_num_stack *next;
-}	t_num_stack;
+	struct s_double_linked_list_node *next;
+}	t_double_linked_list_node;
 
-typedef struct s_cmd_stack {
-	char *cmd;
-	struct s_cmd_stack *prev;
-	struct s_cmd_stack *next;
-}	t_cmd_stack;
+typedef struct s_double_linked_list {
+	struct s_double_linked_list_node *head;
+	struct s_double_linked_list_node *tail;
+	int	size;
+} t_double_linked_list;
 
 int 	check_err(int argc, char *argv[]);
-t_num_stack	*parsing(char *argv[]);
-void	sa(t_num_stack **a);
-void	pa(t_num_stack **a, t_num_stack **b);
-void	pb(t_num_stack **a, t_num_stack **b);
+t_double_linked_list	*parsing(char *argv[]);
+void	sa(t_double_linked_list **a);
+void	sb(t_double_linked_list **b);
 
-void	ra(t_num_stack **a);
-void	rra(t_num_stack **a);
+void	pa(t_double_linked_list **a, t_double_linked_list **b);
+void	pb(t_double_linked_list **a, t_double_linked_list **b);
 
-t_num_stack	*new_stack(int data);
-t_num_stack	*get_tail(t_num_stack *stack);
-void		add_tail(t_num_stack **stack, t_num_stack *new_stack);
+void	ra(t_double_linked_list **a);
+void	rra(t_double_linked_list **a);
+
+t_double_linked_list_node	*new_double_linked_list_node(int data);
+void	append_double_linked_list(t_double_linked_list **list, t_double_linked_list_node *new_node);
+void	add_double_linked_list(t_double_linked_list **list, t_double_linked_list_node *new_node);
+t_double_linked_list_node *pop(t_double_linked_list **list);
+void	push(t_double_linked_list **list, t_double_linked_list_node *node);
 
 #endif

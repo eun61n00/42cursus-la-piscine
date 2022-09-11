@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/09 11:07:08 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/11 15:56:10 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	main(int argc, char *argv[])
 {
-	t_num_stack *a;
-	t_num_stack *b;
+	t_double_linked_list *a;
+	t_double_linked_list *b;
 
 
 	// check error
@@ -28,14 +28,16 @@ int	main(int argc, char *argv[])
 
 	// parsing
 	a = parsing(argv);
-	b = (t_num_stack *)malloc(sizeof(t_num_stack));
+	b = (t_double_linked_list *)malloc(sizeof(t_double_linked_list));
 	if (b == NULL)
 		return (-1);
-	b->data = -1;
-	b->next = NULL;
+	t_double_linked_list_node *b_node = new_double_linked_list_node(0);
+	b->size = 1;
+	b->head = b_node;
+	b->tail = b_node;
 
 	sa(&a);
-	pb(&a, &b);
+	sb(&b);
 	pa(&a, &b);
 	ra(&a);
 	return (0);

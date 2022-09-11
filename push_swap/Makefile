@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/09/09 11:08:48 by eukwon           ###   ########.fr        #
+#    Updated: 2022/09/11 14:00:18 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ OBJS_DIR = ./objs
 LIBFT = libft.a
 LIBFT_DIR = ./lib/libft
 LIBFT_FILE = $(LIBFT_DIR)/$(LIBFT)
-LIBFT_FILE = $(LIBFT_DIR)/$(LIBFT)
 LIBFT_FLAGS = -L $(LIBFT_DIR) -lft
 LIBFT_INC_DIR = $(LIBFT_DIR)/includes
 
@@ -48,6 +47,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	push.c\
 	rotate.c\
 	stack_operations.c\
+	sort.c\
 )
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))

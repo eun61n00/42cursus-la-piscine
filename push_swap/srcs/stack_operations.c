@@ -6,38 +6,82 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:17:39 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/04 09:50:54 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/11 15:43:36 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_num_stack	*new_stack(int data)
+t_double_linked_list_node	*new_double_linked_list_node(int data)
 {
-	t_num_stack *stack;
+	t_double_linked_list_node *node;
 
-	stack = (t_num_stack *)malloc(sizeof(t_num_stack));
-	if (stack == NULL)
+	node = (t_double_linked_list_node *)malloc(sizeof(t_double_linked_list_node));
+	if (node == NULL)
 		return NULL;
-	stack->data = data;
-	stack->next = NULL;
-	return (stack);
+	node->prev = NULL;
+	node->data = data;
+	node->next = NULL;
+	return (node);
 }
 
-t_num_stack *get_tail(t_num_stack *stack)
+void	append_double_linked_list(t_double_linked_list **list, t_double_linked_list_node *new_node)
 {
-	t_num_stack *tmp;
+	if ((*list)->head)
+	{
+		new_node->prev = (*list)->tail;
+		(*list)->tail->next = new_node;
+		(*list)->tail = new_node;
+	}
+	else
+	{
+		(*list)->head = new_node;
+		(*list)->tail = new_node;
+	}
+	(*list)->size += 1;
+}
 
-	tmp = stack;
-	while (tmp && tmp->next)
-		tmp = tmp->next;
+void	add_double_linked_list(t_double_linked_list **list, t_double_linked_list_node *new_node)
+{
+	if (*list)
+		new_node->next = (*list)->head;
+	else
+		new_node->next = NULL;
+	(*list)->head = new_node;
+	(*list)->size += 1;
+}
+
+t_double_linked_list_node *pop(t_double_linked_list **list)
+{
+	t_double_linked_list_node *tmp;
+
+	tmp = (*list)->head;
+	if (!tmp)
+		return NULL;
+	(*list)->head = tmp->next; //두 번째 노드가 없으면 null
+	if ((*list)->head)
+		(*list)->head->prev = NULL;
+	tmp->next = NULL;
 	return (tmp);
 }
 
-void	add_tail(t_num_stack **stack, t_num_stack *new_stack)
+void	push(t_double_linked_list **list, t_double_linked_list_node *node)
 {
-	if (*stack == 0)
-		*stack = new_stack;
+	t_double_linked_list_node *tmp;
+
+	if (node == NULL)
+		return ;
+	if ((*list)->head == NULL)
+	{
+		(*list)->head = node;
+		(*list)->tail = node;
+	}
 	else
-		get_tail(*stack)->next = new_stack;
+	{
+		tmp = (*list)->head;
+		(*list)->head = node;
+		node->next = tmp;
+		tmp->prev = node;
+	}
+	(*list)->size += 1;
 }

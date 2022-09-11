@@ -6,34 +6,26 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:37:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/09 11:10:21 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/11 15:48:47 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_num_stack **a)
+void	ra(t_double_linked_list **a)
 {
-	t_num_stack *tmp;
+	t_double_linked_list_node *popped_node;
 
-	tmp = *a;
-
-	*a = (*a)->next;
-	tmp->next = NULL;
-	get_tail(*a)->next = tmp;
+	popped_node = pop(a);
+	append_double_linked_list(a, popped_node);
+	ft_printf("ra\n");
 }
 
-void	rra(t_num_stack **a)
+void	rb(t_double_linked_list **b)
 {
-	t_num_stack *tmp;
-	t_num_stack *tmp2;
+	t_double_linked_list_node *popped_node;
 
-	tmp = get_tail(*a);
-	int i = tmp->data;
-	tmp2 = (*a);
-	*a = new_stack(i);
-	free(*tmp);
-	*tmp = NULL;
-	(*a)->next = tmp2;
-	// tmp = NULL;
+	popped_node = pop(b);
+	append_double_linked_list(b, popped_node);
+	ft_printf("b\n");
 }
