@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/11 15:56:10 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/11 16:39:59 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ int	main(int argc, char *argv[])
 	b->head = b_node;
 	b->tail = b_node;
 
-	sa(&a);
-	sb(&b);
-	pa(&a, &b);
-	ra(&a);
+	// sa(&a);
+	// sb(&b);
+	// pa(&a, &b);
+	// ra(&a);
+	indexing(&a);
 	return (0);
 }
