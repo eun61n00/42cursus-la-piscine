@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/11 16:39:59 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/14 08:55:12 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char *argv[])
 {
 	t_double_linked_list *a;
 	t_double_linked_list *b;
-
+	int	*sorted_arr;
 
 	// check error
 	if (check_err(argc, argv) == -1)
@@ -36,10 +36,9 @@ int	main(int argc, char *argv[])
 	b->head = b_node;
 	b->tail = b_node;
 
-	// sa(&a);
-	// sb(&b);
-	// pa(&a, &b);
-	// ra(&a);
-	indexing(&a);
+	sorted_arr = sort(&a);
+	//정렬된 배열 갖고 있도 -> 여기서 피봇 꺼내기
+
+
 	return (0);
 }

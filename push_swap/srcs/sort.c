@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:35:55 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/12 10:05:54 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/14 08:47:42 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	swap(int *num_arr, int L, int R);
 void	quick_sort(int *num_arr, int L, int R);
 
-//미리 정렬 후, 인덱싱하자
+//미리 정렬 후, 인덱싱
 int	*copy_data(t_double_linked_list **a)
 {
 	int	*num_arr;
@@ -32,34 +32,6 @@ int	*copy_data(t_double_linked_list **a)
 		i++;
 	}
 	return (num_arr);
-}
-
-void	indexing(t_double_linked_list **a)
-{
-	int	*num_arr = copy_data(a);
-	quick_sort(num_arr, 0, (*a)->size);
-	t_double_linked_list_node *a_node;
-	int	i;
-	int	j;
-
-	a_node = (*a)->head;
-	i = 0;
-	j = 0;
-	while (i < (*a)->size)
-	{
-		j = 0;
-		while (j < (*a)->size)
-		{
-			if (a_node->data == num_arr[j])
-			{
-				a_node->data = j;
-				j++;
-				break;
-			}
-			a_node = a_node->next;
-		}
-		i++;
-	}
 }
 
 void	swap(int *num_arr, int L, int R)
@@ -95,7 +67,11 @@ void	quick_sort(int *num_arr, int L, int R)
 	}
 }
 
-void	sort()
+int	*sort(t_double_linked_list **a)
 {
+	int	*sorted_arr;
 
+	sorted_arr = copy_data(a);
+	quick_sort(sorted_arr, 0, (*a)->size - 1);
+	return (sorted_arr);
 }

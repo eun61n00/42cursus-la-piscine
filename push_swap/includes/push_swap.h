@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/11 16:39:06 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/14 08:51:58 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	add_double_linked_list(t_double_linked_list **list, t_double_linked_list_no
 t_double_linked_list_node *pop(t_double_linked_list **list);
 void	push(t_double_linked_list **list, t_double_linked_list_node *node);
 
+int	*sort(t_double_linked_list **a);
+int	*copy_data(t_double_linked_list **a);
 void	indexing(t_double_linked_list **a);
 
 #endif
