@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:17:39 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/11 15:43:36 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/14 14:19:12 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,40 @@ void	add_double_linked_list(t_double_linked_list **list, t_double_linked_list_no
 	(*list)->size += 1;
 }
 
-t_double_linked_list_node *pop(t_double_linked_list **list)
+t_double_linked_list_node *pop(t_double_linked_list **list, int	node_idx)
 {
 	t_double_linked_list_node *tmp;
 
 	tmp = (*list)->head;
 	if (!tmp)
 		return NULL;
-	(*list)->head = tmp->next; //두 번째 노드가 없으면 null
-	if ((*list)->head)
-		(*list)->head->prev = NULL;
+	if (node_idx == 0)
+	{
+		(*list)->head = tmp->next; //두 번째 노드가 없으면 null
+		if ((*list)->head)
+			(*list)->head->prev = NULL;
+	}
+	else if(node_idx == (*list)->size - 1 || node_idx == -1)
+	{
+		tmp = (*list)->tail;
+		(*list)->tail->prev->next = NULL;
+		(*list)->tail = (*list)->tail->prev;
+	}
+	else
+	{
+		while (node_idx > 0)
+		{
+			tmp = tmp->next;
+			node_idx--;
+		}
+		tmp->prev->next = tmp->next;
+		tmp->next->prev = tmp->prev;
+	}
+	tmp->prev = NULL;
 	tmp->next = NULL;
+	(*list)->size -= 1;
 	return (tmp);
+	// TODO pop의 파라미터로 index값 넘겨서 index에 해당하는 노드 pop해오기
 }
 
 void	push(t_double_linked_list **list, t_double_linked_list_node *node)

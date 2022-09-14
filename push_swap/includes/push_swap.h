@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/14 08:51:58 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/14 13:48:36 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,22 @@ void	pa(t_double_linked_list **a, t_double_linked_list **b);
 void	pb(t_double_linked_list **a, t_double_linked_list **b);
 
 void	ra(t_double_linked_list **a);
+void	rb(t_double_linked_list **a);
 void	rra(t_double_linked_list **a);
+void	rrb(t_double_linked_list **b);
+void	rrr(t_double_linked_list **a, t_double_linked_list **b);
+
 
 t_double_linked_list_node	*new_double_linked_list_node(int data);
 void	append_double_linked_list(t_double_linked_list **list, t_double_linked_list_node *new_node);
 void	add_double_linked_list(t_double_linked_list **list, t_double_linked_list_node *new_node);
-t_double_linked_list_node *pop(t_double_linked_list **list);
+t_double_linked_list_node *pop(t_double_linked_list **list, int node_idx);
 void	push(t_double_linked_list **list, t_double_linked_list_node *node);
 
-int	*sort(t_double_linked_list **a);
+int	*make_sorted_array(t_double_linked_list **a);
 int	*copy_data(t_double_linked_list **a);
-void	indexing(t_double_linked_list **a);
+
+void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array);
+void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array);
 
 #endif

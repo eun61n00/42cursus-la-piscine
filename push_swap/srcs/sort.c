@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:35:55 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/14 08:47:42 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/14 10:34:50 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	quick_sort(int *num_arr, int L, int R)
 	}
 }
 
-int	*sort(t_double_linked_list **a)
+int	*make_sorted_array(t_double_linked_list **a)
 {
 	int	*sorted_arr;
 
