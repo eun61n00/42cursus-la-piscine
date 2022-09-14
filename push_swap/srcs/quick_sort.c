@@ -108,7 +108,7 @@ void	sort_three_nums(t_double_linked_list **list)
 	bottom = (*list)->tail->data;
 	if (top > bottom)
 	{
-		if (mid > bottom);
+		if (mid > bottom)
 		{
 			sa(list); //TODO 들어오는 스택이 a인지 b인치 체크 (?)
 			rra(list);
@@ -116,12 +116,9 @@ void	sort_three_nums(t_double_linked_list **list)
 		else
 		{
 			if (bottom > top)
-sa(list);
-else
-{
-	ra(li)
-}
-
+				sa(list);
+			else
+				ra(list);
 		}
 	}
 	else
