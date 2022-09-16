@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:37:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/14 13:48:05 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/17 00:24:53 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	rrr(t_double_linked_list **a, t_double_linked_list **b)
 {
 	t_double_linked_list_node *popped_node;
 
-	popped_node = pop(a, 0);
-	append_double_linked_list(a, popped_node);
-	popped_node = pop(b, 0);
-	append_double_linked_list(b, popped_node);
+	popped_node = pop(a, -1);
+	add_double_linked_list(a, popped_node);
+	popped_node = pop(b, -1);
+	add_double_linked_list(b, popped_node);
 	ft_printf("rrr\n");
 }

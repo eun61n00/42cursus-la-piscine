@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:17:39 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/14 14:19:12 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/17 01:33:47 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,16 @@ void	append_double_linked_list(t_double_linked_list **list, t_double_linked_list
 
 void	add_double_linked_list(t_double_linked_list **list, t_double_linked_list_node *new_node)
 {
-	if (*list)
+	if ((*list)->head)
+	{
 		new_node->next = (*list)->head;
+		(*list)->head->prev = new_node;
+	}
 	else
+	{
 		new_node->next = NULL;
+		(*list)->tail = new_node;
+	}
 	(*list)->head = new_node;
 	(*list)->size += 1;
 }
@@ -63,12 +69,17 @@ t_double_linked_list_node *pop(t_double_linked_list **list, int	node_idx)
 		(*list)->head = tmp->next; //두 번째 노드가 없으면 null
 		if ((*list)->head)
 			(*list)->head->prev = NULL;
+		else
+			(*list)->tail = NULL;
 	}
-	else if(node_idx == (*list)->size - 1 || node_idx == -1)
+	else if(node_idx == ((*list)->size - 1) || node_idx == -1)
 	{
 		tmp = (*list)->tail;
-		(*list)->tail->prev->next = NULL;
 		(*list)->tail = (*list)->tail->prev;
+		if ((*list)->size == 1)
+			(*list)->head = NULL;
+		else
+			(*list)->tail->prev->next = NULL;
 	}
 	else
 	{
