@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/17 10:09:10 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/17 16:16:33 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,16 @@ void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array)
 {
 	int pivot1_idx, pivot2_idx;
-	int ra_cnt = 0, pa_cnt = 0, rb_cnt = 0;
+	int ra_cnt = 0, pa_cnt = 0, rb_cnt = 0, i = n;
 
 	if (n <= 3)
 	{
-		sort_few_nums(n, b);
-		while (n > 0)
+		while (i > 0)
 		{
 			pa(a, b);
-			n--;
+			i--;
 		}
+		sort_few_nums(n, a);
 		return ;
 	}
 	pivot1_idx = n/3;
@@ -118,7 +118,6 @@ void	sort_few_nums(int n, t_double_linked_list **list)
 	int bottom;
 
 	top = (*list)->head->data;
-	// bottom = (*list)->tail->data;
 	if (n == 1)
 		return ;
 	else if (n == 2)
@@ -144,3 +143,43 @@ void	sort_few_nums(int n, t_double_linked_list **list)
 	else
 		rra(list);
 }
+
+// void	sort_few_nums_desc(int n, t_double_linked_list **list)
+// {
+// 	int top;
+// 	int mid;
+// 	int bottom;
+
+// 	top = (*list)->head->data;
+// 	if (n == 1)
+// 		return ;
+// 	else if (n == 2)
+// 	{
+// 		bottom = (*list)->head->next->data;
+// 		if (top < bottom)
+// 			sa(list);
+// 		return ;
+// 	}
+// 	mid = (*list)->head->next->data;
+// 	bottom = (*list)->head->next->next->data;
+// 	if ((top > mid) && mid > bottom)
+// 		return ;
+// 	if ((top < mid) && (top > bottom) // 2 3 1
+// 		|| (top > mid) && (mid < bottom)) //
+// 	{
+// 		sb(list);
+// 		sort_few_num(list);
+// 	}
+
+// 	if ((top > mid && top < bottom) //2 1 3 ->rra
+// 		|| (top > mid && mid > bottom)
+// 		|| (top < bottom && bottom < mid)) // 1 3 2 -> rb
+// 	{
+// 		rb(list);
+// 		sort_few_nums(n, list);
+// 	}
+// 	else if (top > bottom && mid < bottom) // 3 1 2
+// 		ra(list);
+// 	else
+// 		rra(list);
+// }
