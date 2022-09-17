@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:17:39 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/17 01:33:47 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/17 09:49:25 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_double_linked_list_node *pop(t_double_linked_list **list, int	node_idx)
 		if ((*list)->size == 1)
 			(*list)->head = NULL;
 		else
-			(*list)->tail->prev->next = NULL;
+			(*list)->tail->next = NULL;
 	}
 	else
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/17 01:14:43 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/17 10:09:10 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,17 +118,19 @@ void	sort_few_nums(int n, t_double_linked_list **list)
 	int bottom;
 
 	top = (*list)->head->data;
-	bottom = (*list)->tail->data;
+	// bottom = (*list)->tail->data;
 	if (n == 1)
 		return ;
 	else if (n == 2)
 	{
+		bottom = (*list)->head->next->data;
 		if (top > bottom)
 			sa(list);
 		return ;
 	}
 	mid = (*list)->head->next->data;
-	if (top < mid < bottom)
+	bottom = (*list)->head->next->next->data;
+	if ((top < mid) && mid < bottom)
 		return ;
 	if ((top > mid && top < bottom)
 		|| (top > mid && mid > bottom)

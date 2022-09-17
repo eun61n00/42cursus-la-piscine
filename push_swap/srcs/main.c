@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/17 00:46:01 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/17 09:53:47 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	check_leaks(void)
 int	main(int argc, char *argv[])
 {
 	atexit(check_leaks);
+	// system("leads push_swap");
 	t_double_linked_list *a;
 	t_double_linked_list *b;
+	t_double_linked_list_node *tmp;
 	int	*sorted_arr;
 
 	// check error
@@ -43,6 +45,26 @@ int	main(int argc, char *argv[])
 
 	sorted_arr = make_sorted_array(&a);
 	a_to_b(a->size, &a, &b, sorted_arr);
-
+	tmp = a->head;
+	for (int i = 0; i < a->size; i++)
+	{
+		ft_printf("%d ", tmp->data);
+		tmp = tmp->next;
+	}
+	tmp = a->head;
+	while(tmp)
+	{
+		free(tmp);
+		tmp = tmp->next;
+	}
+	free(a);
+	tmp = b->head;
+	while(tmp)
+	{
+		tmp = tmp->next;
+		free(tmp);
+	}
+	free(b);
+	free(sorted_arr);
 	return (0);
 }
