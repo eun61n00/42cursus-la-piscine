@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/14 13:48:36 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/19 22:21:16 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_double_linked_list {
 } t_double_linked_list;
 
 int 	check_err(int argc, char *argv[]);
-t_double_linked_list	*parsing(char *argv[]);
+t_double_linked_list	*parsing(int argc, char *argv[]);
 void	sa(t_double_linked_list **a);
 void	sb(t_double_linked_list **b);
 
@@ -54,5 +54,6 @@ int	*copy_data(t_double_linked_list **a);
 
 void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array);
 void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array);
+void	sort_few_nums(t_double_linked_list **list);
 
 #endif
