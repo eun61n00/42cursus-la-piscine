@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/25 13:56:21 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/25 18:32:31 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char *argv[])
 		sorted_arr = make_sorted_array(&a);
 		tmp = a->head;
 		i = 0;
-		while (tmp && tmp->data == sorted_arr[i])
+		while (tmp && (tmp->data == sorted_arr[i]))
 		{
 			tmp = tmp->next;
 			i++;
