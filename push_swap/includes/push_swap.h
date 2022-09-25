@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/09/17 01:01:47 by eukwon           ###   ########.fr       */
-=======
-/*   Updated: 2022/09/19 22:21:16 by eukwon           ###   ########.fr       */
->>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
+/*   Updated: 2022/09/25 11:23:05 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +54,6 @@ int	*copy_data(t_double_linked_list **a);
 
 void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array);
 void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array);
-<<<<<<< HEAD
-void	sort_few_nums(int n, t_double_linked_list **list);
-=======
-void	sort_few_nums(t_double_linked_list **list);
->>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
+void	sort_few_nums(t_double_linked_list **list, int n);
 
 #endif

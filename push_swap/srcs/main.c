@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/09/17 17:20:24 by eukwon           ###   ########.fr       */
-=======
-/*   Updated: 2022/09/20 15:50:36 by eukwon           ###   ########.fr       */
->>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
+/*   Updated: 2022/09/25 09:52:55 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +49,6 @@ int	main(int argc, char *argv[])
 	b->tail = NULL;
 
 	sorted_arr = make_sorted_array(&a);
-<<<<<<< HEAD
 	a_to_b(a->size, &a, &b, sorted_arr);
 	// tmp = a->head;
 	// for (int i = 0; i < a->size; i++)
@@ -76,14 +71,5 @@ int	main(int argc, char *argv[])
 	}
 	free(b);
 	free(sorted_arr);
-=======
-	//TODO 이미 정렬되어있으면 바로 리턴
-	while (argv)
-	{
-		// if ft
-	}
-	a_to_b(a->size, &a, &b, sorted_arr);
-
->>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
 	return (0);
 }
