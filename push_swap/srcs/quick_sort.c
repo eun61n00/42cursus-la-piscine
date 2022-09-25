@@ -6,24 +6,27 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/25 11:28:28 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/25 13:53:27 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	reverse_unsorted(t_double_linked_list **a, t_double_linked_list **b, int ra_cnt, int rb_cnt)
+void	reverse_unsorted(t_double_linked_list **a, t_double_linked_list **b, int ra_cnt, int rb_cnt, int *i)
 {
-	while (ra_cnt > 0 && rb_cnt > 0)
+	if (*i == 1)
 	{
-		rrr(a, b);
-		ra_cnt--;
-		rb_cnt--;
-	}
-	while (ra_cnt > 0)
-	{
-		rra(a);
-		ra_cnt--;
+		while (ra_cnt > 0 && rb_cnt > 0)
+		{
+			rrr(a, b);
+			ra_cnt--;
+			rb_cnt--;
+		}
+		while (ra_cnt > 0)
+		{
+			rra(a);
+			ra_cnt--;
+		}
 	}
 	while (rb_cnt > 0)
 	{
@@ -32,7 +35,7 @@ void	reverse_unsorted(t_double_linked_list **a, t_double_linked_list **b, int ra
 	}
 }
 
-void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array)
+void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array, int *i)
 {
 	int	pivot1_idx, pivot2_idx;
 	int	ra_cnt = 0, rb_cnt = 0, pb_cnt = 0;
@@ -63,25 +66,26 @@ void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 		}
 		n--;
 	}
-	reverse_unsorted(a, b, ra_cnt, rb_cnt);
-	a_to_b(ra_cnt, a, b, &sorted_array[pivot2_idx]);
-	b_to_a(rb_cnt, a, b, &sorted_array[pivot1_idx]);
-	b_to_a(pb_cnt - rb_cnt, a, b, sorted_array);
+	reverse_unsorted(a, b, ra_cnt, rb_cnt, i);
+	a_to_b(ra_cnt, a, b, &sorted_array[pivot2_idx], i);
+	b_to_a(rb_cnt, a, b, &sorted_array[pivot1_idx], i);
+	b_to_a(pb_cnt - rb_cnt, a, b, sorted_array, i);
 }
 
-void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array)
+void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array, int *i)
 {
 	int pivot1_idx, pivot2_idx;
 	int ra_cnt = 0, pa_cnt = 0, rb_cnt = 0;
 
+	*i = 1;
 	if (n <= 3)
 	{
-		sort_few_nums(b, n);
 		while (n > 0)
 		{
 			pa(a, b);
 			n--;
 		}
+		sort_few_nums(a, n);
 		return ;
 	}
 	pivot1_idx = n/3;
@@ -105,10 +109,10 @@ void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 		}
 		n--;
 	}
-	a_to_b(pa_cnt-ra_cnt, a, b, sorted_array);
-	reverse_unsorted(a, b, ra_cnt, rb_cnt);
-	a_to_b(rb_cnt, a, b, sorted_array);
-	b_to_a(ra_cnt, a, b, sorted_array);
+	a_to_b(pa_cnt-ra_cnt, a, b, sorted_array, i);
+	reverse_unsorted(a, b, ra_cnt, rb_cnt, i);
+	a_to_b(rb_cnt, a, b, sorted_array, i);
+	b_to_a(ra_cnt, a, b, sorted_array, i);
 }
 
 void	sort_few_nums(t_double_linked_list **list, int n)
@@ -129,7 +133,7 @@ void	sort_few_nums(t_double_linked_list **list, int n)
 	top = (*list)->head->data;
 	middle = (*list)->head->next->data;
 	bottom = (*list)->head->next->next->data;
-	if (top < middle < bottom)
+	if ((top < middle) && (middle < bottom))
 		return ;
 	if ((top > middle && top < bottom)
 		|| (top > middle && middle > bottom)

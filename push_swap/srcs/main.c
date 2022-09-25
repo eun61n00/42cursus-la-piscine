@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/25 09:52:55 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/25 13:56:21 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,10 @@ int	main(int argc, char *argv[])
 	t_double_linked_list *b;
 	t_double_linked_list_node *tmp;
 	int	*sorted_arr;
+	int	i;
 
 	if (argc == 1)
-	{
-		ft_printf("Error\n");
 		return (-1);
-	}
-	// check error
-	// if (check_err(argc, argv) == -1)
-	// {
-	// 	ft_printf("Error\n");
-	// 	return (-1);
-	// }
-
-	// parsing
 	a = parsing(argc, argv);
 	b = (t_double_linked_list *)malloc(sizeof(t_double_linked_list));
 	if (b == NULL)
@@ -47,29 +37,46 @@ int	main(int argc, char *argv[])
 	b->size = 0;
 	b->head = NULL;
 	b->tail = NULL;
-
-	sorted_arr = make_sorted_array(&a);
-	a_to_b(a->size, &a, &b, sorted_arr);
-	// tmp = a->head;
-	// for (int i = 0; i < a->size; i++)
-	// {
-	// 	ft_printf("%d ", tmp->data);
-	// 	tmp = tmp->next;
-	// }
-	tmp = a->head;
-	while(tmp)
+	if (a == NULL || contain_duplicates(&a) == 1)
+		ft_printf("Error\n");
+	else
 	{
-	free(tmp);
-	tmp = tmp->next;
+		sorted_arr = make_sorted_array(&a);
+		tmp = a->head;
+		i = 0;
+		while (tmp && tmp->data == sorted_arr[i])
+		{
+			tmp = tmp->next;
+			i++;
+		}
+		if (tmp == NULL)
+			return (-1); // already sorted
+		i = 0;
+		a_to_b(a->size, &a, &b, sorted_arr, &i);
+		tmp = a->head;
+		for (int i = 0; i < a->size; i++)
+		{
+			ft_printf("%d ", tmp->data);
+			tmp = tmp->next;
+		}
+		free(sorted_arr);
 	}
-	free(a);
+	if (a)
+	{
+		tmp = a->head;
+		while(tmp)
+		{
+			free(tmp);
+			tmp = tmp->next;
+		}
+		free(a);
+	}
 	tmp = b->head;
 	while(tmp)
 	{
-	tmp = tmp->next;
-	free(tmp);
+		tmp = tmp->next;
+		free(tmp);
 	}
 	free(b);
-	free(sorted_arr);
 	return (0);
 }

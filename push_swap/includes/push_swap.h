@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/25 11:23:05 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/25 13:52:35 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_double_linked_list {
 	int	size;
 } t_double_linked_list;
 
-int 	check_err(int argc, char *argv[]);
+int contain_duplicates(t_double_linked_list **a);
 t_double_linked_list	*parsing(int argc, char *argv[]);
 void	sa(t_double_linked_list **a);
 void	sb(t_double_linked_list **b);
@@ -52,8 +52,9 @@ void	push(t_double_linked_list **list, t_double_linked_list_node *node);
 int	*make_sorted_array(t_double_linked_list **a);
 int	*copy_data(t_double_linked_list **a);
 
-void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array);
-void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array);
+void	reverse_unsorted(t_double_linked_list **a, t_double_linked_list **b, int ra_cnt, int rb_cnt, int *i);
+void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array, int *i);
+void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array, int *i);
 void	sort_few_nums(t_double_linked_list **list, int n);
 
 #endif
