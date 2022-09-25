@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
 /*   Updated: 2022/09/17 16:16:33 by eukwon           ###   ########.fr       */
+=======
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
+/*   Updated: 2022/09/19 22:12:37 by eukwon           ###   ########.fr       */
+>>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +46,16 @@ void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 
 	if (n <= 3)
 	{
+<<<<<<< HEAD
 		sort_few_nums(n, a);
+=======
+		sort_few_nums(a);
+		while (n > 0)
+		{
+			pb(a, b);
+			n--;
+		}
+>>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
 		return ;
 	}
 	pivot1_idx = n/3;
@@ -72,6 +88,7 @@ void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array)
 {
 	int pivot1_idx, pivot2_idx;
+<<<<<<< HEAD
 	int ra_cnt = 0, pa_cnt = 0, rb_cnt = 0, i = n;
 
 	if (n <= 3)
@@ -82,6 +99,18 @@ void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 			i--;
 		}
 		sort_few_nums(n, a);
+=======
+	int ra_cnt = 0, pa_cnt = 0, rb_cnt = 0;
+
+	if (n <= 3)
+	{
+		sort_few_nums(b);
+		while (n > 0)
+		{
+			pa(a, b);
+			n--;
+		}
+>>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
 		return ;
 	}
 	pivot1_idx = n/3;
@@ -107,17 +136,26 @@ void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 	}
 	a_to_b(pa_cnt - ra_cnt, a, b, sorted_array);
 	reverse_unsorted(a, b, ra_cnt, rb_cnt);
+<<<<<<< HEAD
+=======
+	a_to_b(pa_cnt - ra_cnt, a, b, sorted_array);
+>>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
 	a_to_b(rb_cnt, a, b, sorted_array);
 	b_to_a(ra_cnt, a, b, sorted_array);
 }
 
+<<<<<<< HEAD
 void	sort_few_nums(int n, t_double_linked_list **list)
+=======
+void	sort_few_nums(t_double_linked_list **list)
+>>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
 {
 	int top;
 	int mid;
 	int bottom;
 
 	top = (*list)->head->data;
+<<<<<<< HEAD
 	if (n == 1)
 		return ;
 	else if (n == 2)
@@ -138,10 +176,32 @@ void	sort_few_nums(int n, t_double_linked_list **list)
 		sa(list);
 		sort_few_nums(n, list);
 	}
+=======
+	bottom = (*list)->tail->data;
+	if ((*list)->size == 1)
+		return ;
+	else if ((*list)->size == 2)
+	{
+		if (top > bottom)
+			sa(list);
+		return ;
+	}
+	mid = (*list)->head->next->data;
+	if (top < mid < bottom)
+		return ;
+	if ((top > mid && top < bottom)
+		|| (top > mid && mid > bottom)
+		|| (top < bottom && bottom < mid))
+	{
+		sa(list);
+		sort_few_nums(list);
+	}
+>>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
 	else if (top > bottom && mid < bottom)
 		ra(list);
 	else
 		rra(list);
+<<<<<<< HEAD
 }
 
 // void	sort_few_nums_desc(int n, t_double_linked_list **list)
@@ -183,3 +243,6 @@ void	sort_few_nums(int n, t_double_linked_list **list)
 // 	else
 // 		rra(list);
 // }
+=======
+}
+>>>>>>> d136cd08d8bb3388886096d04115816aa7b4c775
