@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/25 18:46:39 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/27 15:13:13 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 	}
 	a_to_b(pa_cnt-ra_cnt, a, b, sorted_array, i);
 	reverse_unsorted(a, b, ra_cnt, rb_cnt, i);
-	a_to_b(rb_cnt, a, b, sorted_array, i);
-	b_to_a(ra_cnt, a, b, sorted_array, i);
+	a_to_b(ra_cnt, a, b, sorted_array, i);
+	b_to_a(rb_cnt, a, b, sorted_array, i);
 }
 
 void	sort_few_nums(t_double_linked_list **list, int n)
