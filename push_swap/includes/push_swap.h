@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/25 13:52:35 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/27 22:11:25 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,6 @@ int	*copy_data(t_double_linked_list **a);
 void	reverse_unsorted(t_double_linked_list **a, t_double_linked_list **b, int ra_cnt, int rb_cnt, int *i);
 void	a_to_b(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array, int *i);
 void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sorted_array, int *i);
-void	sort_few_nums(t_double_linked_list **list, int n);
+void	sort_few_nums(t_double_linked_list **a, t_double_linked_list **b, int n);
 
 #endif

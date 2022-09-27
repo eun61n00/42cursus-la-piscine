@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/27 15:10:02 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/27 22:18:09 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ int	main(int argc, char *argv[])
 		i = 0;
 		a_to_b(a->size, &a, &b, sorted_arr, &i);
 		tmp = a->head;
-		for (int i = 0; i < a->size; i++)
-		{
-			ft_printf("%d ", tmp->data);
-			tmp = tmp->next;
-		}
+		// for (int i = 0; i < a->size; i++)
+		// {
+		// 	ft_printf("%d ", tmp->data);
+		// 	tmp = tmp->next;
+		// }
 		free(sorted_arr);
 	}
 	if (a)
