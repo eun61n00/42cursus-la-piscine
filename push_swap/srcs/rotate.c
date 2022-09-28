@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 10:37:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/17 08:48:27 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/28 13:56:40 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ra(t_double_linked_list **a)
 {
-	t_double_linked_list_node *popped_node;
+	t_double_linked_list_node	*popped_node;
 
 	popped_node = pop(a, 0);
 	append_double_linked_list(a, popped_node);
@@ -25,12 +25,11 @@ void	rra(t_double_linked_list **a)
 {
 	add_double_linked_list(a, pop(a, -1));
 	ft_printf("rra\n");
-	// TODO impletment rra
 }
 
 void	rb(t_double_linked_list **b)
 {
-	t_double_linked_list_node *popped_node;
+	t_double_linked_list_node	*popped_node;
 
 	popped_node = pop(b, 0);
 	append_double_linked_list(b, popped_node);
@@ -45,7 +44,7 @@ void	rrb(t_double_linked_list **b)
 
 void	rrr(t_double_linked_list **a, t_double_linked_list **b)
 {
-	t_double_linked_list_node *popped_node;
+	t_double_linked_list_node	*popped_node;
 
 	popped_node = pop(a, -1);
 	add_double_linked_list(a, popped_node);

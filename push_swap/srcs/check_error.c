@@ -6,13 +6,13 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 16:23:25 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/25 18:06:15 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/28 12:56:32 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int contain_duplicates(t_double_linked_list **a)
+int	contain_duplicates(t_double_linked_list **a)
 {
 	t_double_linked_list_node	*tmp;
 	t_double_linked_list_node	*tmp2;

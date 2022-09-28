@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/27 22:18:10 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/28 14:08:21 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	b_to_a(int n, t_double_linked_list **a, t_double_linked_list **b, int *sort
 	int ra_cnt = 0, pa_cnt = 0, rb_cnt = 0;
 	int n_cp;
 
-	*i = 1;
+	*i = 0;
 	n_cp = n;
 	if (n <= 3)
 	{
@@ -162,6 +162,11 @@ void	sort_few_nums(t_double_linked_list **a, t_double_linked_list **b, int n)
 	}
 	else if (top > bottom && middle < bottom)
 	{
+		if ((*a)->size <= 3)
+		{
+			ra(a);
+			return ;
+		}
 		ra(a);
 		pb(a, b);
 		pb(a,b);
@@ -171,6 +176,11 @@ void	sort_few_nums(t_double_linked_list **a, t_double_linked_list **b, int n)
 	}
 	else
 	{
+		if ((*a)->size <= 3)
+		{
+			rra(a);
+			return ;
+		}
 		pb(a, b);
 		pb(a, b);
 		ra(a);

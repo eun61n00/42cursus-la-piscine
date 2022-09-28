@@ -6,21 +6,17 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:35:55 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/14 10:34:50 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/28 13:55:37 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	swap(int *num_arr, int L, int R);
-void	quick_sort(int *num_arr, int L, int R);
-
-//미리 정렬 후, 인덱싱
 int	*copy_data(t_double_linked_list **a)
 {
-	int	*num_arr;
-	int	i;
-	t_double_linked_list_node *a_node;
+	int							*num_arr;
+	int							i;
+	t_double_linked_list_node	*a_node;
 
 	num_arr = (int *)malloc(sizeof(int) * ((*a)->size));
 	a_node = (*a)->head;
@@ -34,7 +30,7 @@ int	*copy_data(t_double_linked_list **a)
 	return (num_arr);
 }
 
-void	swap(int *num_arr, int L, int R)
+static void	swap(int *num_arr, int L, int R)
 {
 	int	tmp;
 
@@ -43,11 +39,15 @@ void	swap(int *num_arr, int L, int R)
 	num_arr[R] = tmp;
 }
 
-void	quick_sort(int *num_arr, int L, int R)
+static void	quick_sort(int *num_arr, int L, int R)
 {
-	int left = L, right = R;
-	int pivot = num_arr[(L + R) / 2];
+	int	left;
+	int	right;
+	int	pivot;
 
+	left = L;
+	right = R;
+	pivot = num_arr[(L + R) / 2];
 	while (left <= right)
 	{
 		while (num_arr[left] < pivot)
@@ -60,7 +60,7 @@ void	quick_sort(int *num_arr, int L, int R)
 			left++;
 			right--;
 		}
-		if (L < right) //아직 끝까지 정렬하지 못함
+		if (L < right)
 			quick_sort(num_arr, L, right);
 		if (left < R)
 			quick_sort(num_arr, left, R);
