@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   create_double_linked_list.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:42:27 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/28 13:43:03 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/29 18:51:38 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdlib.h>
 
 t_double_linked_list_node	*new_double_linked_list_node(int data)
 {

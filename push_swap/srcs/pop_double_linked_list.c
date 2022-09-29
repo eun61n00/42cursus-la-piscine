@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pop_double_linked_list.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:48:16 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/28 13:48:42 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/29 18:55:40 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static t_double_linked_list_node	*pop_first_idx(t_double_linked_list **list)
+static t_double_linked_list_node	*pop_first_node(t_double_linked_list **list)
 {
 	t_double_linked_list_node	*tmp;
 

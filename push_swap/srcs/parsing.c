@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 16:27:15 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/28 14:00:47 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/29 18:48:28 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,9 @@ t_double_linked_list	*parsing(int argc, char *argv[])
 	t_double_linked_list	*a;
 
 	argv++;
-	a = (t_double_linked_list *)malloc(sizeof(t_double_linked_list));
+	a = new_double_linked_list();
 	if (a == NULL)
 		return (NULL);
-	a->head = NULL;
-	a->size = 0;
-	a->tail = NULL;
 	if (argc == 2)
 		argv = ft_split(*argv, ' ');
 	while (*argv)

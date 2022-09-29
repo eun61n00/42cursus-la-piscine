@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/28 16:39:19 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/29 18:51:27 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdlib.h>
 
 static int	already_sorted(t_double_linked_list **a, int *sorted_array)
 {
@@ -64,6 +63,10 @@ int	main(int argc, char *argv[])
 		return (-1);
 	a = parsing(argc, argv);
 	b = new_double_linked_list();
+	// b = (t_double_linked_list *)malloc(sizeof(t_double_linked_list));
+	// b->head = NULL;
+	// b->size = 0;
+	// b->tail = NULL;
 	if (b == NULL)
 		return (-1);
 	if (a == NULL || contain_duplicates(&a) == 1)

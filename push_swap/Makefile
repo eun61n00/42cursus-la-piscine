@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/09/17 14:38:57 by eukwon           ###   ########.fr        #
+#    Updated: 2022/09/29 18:55:00 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,12 +43,16 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	main.c\
 	check_error.c\
 	parsing.c\
-	swap.c\
-	push.c\
-	rotate.c\
-	stack_operations.c\
-	sort.c\
+	create_double_linked_list.c\
+	add_double_linked_list.c\
+	append_double_linked_list.c\
+	pop_double_linked_list.c\
+	push_double_linked_list.c\
 	quick_sort.c\
+	sort.c\
+	push.c\
+	swap.c\
+	rotate.c\
 )
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
