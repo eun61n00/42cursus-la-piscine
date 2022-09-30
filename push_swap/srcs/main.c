@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/29 18:51:27 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/30 10:56:18 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,12 @@ int	main(int argc, char *argv[])
 {
 	t_double_linked_list		*a;
 	t_double_linked_list		*b;
-	int							i;
 	int							*sorted_array;
 
 	if (argc == 1)
 		return (-1);
 	a = parsing(argc, argv);
 	b = new_double_linked_list();
-	// b = (t_double_linked_list *)malloc(sizeof(t_double_linked_list));
-	// b->head = NULL;
-	// b->size = 0;
-	// b->tail = NULL;
 	if (b == NULL)
 		return (-1);
 	if (a == NULL || contain_duplicates(&a) == 1)
@@ -76,14 +71,7 @@ int	main(int argc, char *argv[])
 		sorted_array = make_sorted_array(&a);
 		if (already_sorted(&a, sorted_array) == 1)
 			return (0);
-		i = 0;
-		a_to_b(a->size, &a, &b, sorted_array, &i);
-		// t_double_linked_list_node *tmp = a->head;
-		// while (tmp)
-		// {
-		// 	ft_printf("%d ", tmp->data);
-		// 	tmp = tmp->next;
-		// }
+		a_to_b(a->size, &a, &b, sorted_array);
 		free(sorted_array);
 	}
 	free_list(&a, &b);

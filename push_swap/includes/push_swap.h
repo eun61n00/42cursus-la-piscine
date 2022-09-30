@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/29 18:52:09 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/30 10:55:51 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_double_linked_list {
 	struct s_double_linked_list_node	*head;
 	struct s_double_linked_list_node	*tail;
 	int									size;
+	int									excuted;
 }	t_double_linked_list;
 
 int							contain_duplicates(t_double_linked_list **a);
@@ -58,17 +59,14 @@ int							*copy_data(t_double_linked_list **a);
 void						reverse_unsorted(t_double_linked_list **a, \
 												t_double_linked_list **b, \
 												int ra_cnt, \
-												int rb_cnt, \
-												int *i);
+												int rb_cnt);
 void						a_to_b(int n, \
 									t_double_linked_list **a, \
 									t_double_linked_list **b, \
-									int *sorted_array, \
-									int *i);
+									int *sorted_array);
 void						b_to_a(int n, t_double_linked_list **a, \
 									t_double_linked_list **b, \
-									int *sorted_array, \
-									int *i);
+									int *sorted_array);
 void						sort_few_nums(t_double_linked_list **a, \
 											t_double_linked_list **b, int n);
 

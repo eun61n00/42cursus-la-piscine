@@ -3,66 +3,91 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three_nums.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:59:34 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/29 19:04:12 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/30 10:11:23 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	sort_three_nums(t_double_linked_list **a, t_double_linked_list **b, int n)
+static int	check_order(t_double_linked_list **a)
 {
-	int top;
-	int middle;
-	int bottom;
+	int	top;
+	int	middle;
+	int	bottom;
 
 	top = (*a)->head->data;
 	middle = (*a)->head->next->data;
 	bottom = (*a)->head->next->next->data;
 	if ((top < middle) && (middle < bottom))
-		return ;
-	if ((top > middle && top < bottom)
+		return (0);
+	else if ((top > middle && top < bottom)
 		|| (top > middle && middle > bottom)
 		|| (top < bottom && bottom < middle))
-	{
-		sa(a);
-		sort_few_nums(a, b, n);
-	}
+		return (1);
 	else if (top > bottom && middle < bottom)
 	{
 		if ((*a)->size <= 3)
-		{
-			ra(a);
-			return ;
-		}
-		ra(a);
-		pb(a, b);
-		pb(a,b);
-		rra(a);
-		pa(a, b);
-		pa(a, b);
+			return (2);
+		return (3);
 	}
 	else
 	{
 		if ((*a)->size <= 3)
-		{
-			rra(a);
-			return ;
-		}
-		pb(a, b);
-		pb(a, b);
-		ra(a);
-		pa(a, b);
-		pa(a, b);
-		rra(a);
+			return (4);
+		return (5);
 	}
+}
+
+static void	rotate_three_nums(t_double_linked_list **a, \
+								t_double_linked_list **b)
+{
+	ra(a);
+	pb(a, b);
+	pb(a, b);
+	rra(a);
+	pa(a, b);
+	pa(a, b);
+}
+
+static void	reverse_rotate_three_nums(t_double_linked_list **a, \
+										t_double_linked_list **b)
+{
+	pb(a, b);
+	pb(a, b);
+	ra(a);
+	pa(a, b);
+	pa(a, b);
+	rra(a);
+}
+
+static void	sort_three_nums(t_double_linked_list **a, \
+								t_double_linked_list **b, int n)
+{
+	int	order_res;
+
+	order_res = check_order(a);
+	if (order_res == 0)
+		return ;
+	else if (order_res == 1)
+	{
+		sa(a);
+		sort_few_nums(a, b, n);
+	}
+	else if (order_res == 2)
+		ra(a);
+	else if (order_res == 3)
+		rotate_three_nums(a, b);
+	else if (order_res == 4)
+		rra(a);
+	else
+		reverse_rotate_three_nums(a, b);
 }
 
 void	sort_few_nums(t_double_linked_list **a, t_double_linked_list **b, int n)
 {
-
 	if (n == 1)
 		return ;
 	else if (n == 2)
@@ -71,7 +96,6 @@ void	sort_few_nums(t_double_linked_list **a, t_double_linked_list **b, int n)
 			sa(a);
 		return ;
 	}
-	else {
-		sort_three_nums(a, b, n)
-	}
+	else
+		sort_three_nums(a, b, n);
 }

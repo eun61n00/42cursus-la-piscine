@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/09/29 18:55:00 by eukwon           ###   ########.fr        #
+#    Updated: 2022/09/30 09:41:06 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	pop_double_linked_list.c\
 	push_double_linked_list.c\
 	quick_sort.c\
+	sort_three_nums.c\
 	sort.c\
 	push.c\
 	swap.c\

@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 17:17:39 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/28 13:52:17 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/30 11:03:54 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ void	append_double_linked_list(t_double_linked_list **list, \
 	}
 	(*list)->size += 1;
 }
-

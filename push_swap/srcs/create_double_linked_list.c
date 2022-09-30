@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_double_linked_list.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 13:42:27 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/29 18:51:38 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/09/30 10:54:35 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ t_double_linked_list	*new_double_linked_list(void)
 	list->size = 0;
 	list->head = NULL;
 	list->tail = NULL;
+	list->excuted = 0;
 	return (list);
 }
