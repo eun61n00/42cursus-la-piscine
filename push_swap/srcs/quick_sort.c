@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/30 11:15:09 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/01 16:39:56 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,35 +40,28 @@ void	reverse_unsorted(t_double_linked_list **a, \
 int	*seperate_a_to_b(int n, t_double_linked_list **a, \
 								t_double_linked_list **b, int *sorted_array)
 {
-	int	*op_cnt;
-	int	pivot1_idx;
-	int	pivot2_idx;
+	int	*variables_array;
 
-	op_cnt = (int *)malloc(sizeof(int) * 3);
-	op_cnt[0] = 0;
-	op_cnt[1] = 0;
-	op_cnt[2] = 0;
-	pivot1_idx = n / 3;
-	pivot2_idx = n / 3 * 2;
+	variables_array = init_variables(n);
 	while (n-- > 0)
 	{
-		if ((*a)->head->data >= sorted_array[pivot2_idx])
+		if ((*a)->head->data >= sorted_array[variables_array[4]])
 		{
 			ra(a);
-			op_cnt[0]++;
+			variables_array[0]++;
 		}
 		else
 		{
 			pb(a, b);
-			op_cnt[2]++;
-			if ((*b)->head->data >= sorted_array[pivot1_idx])
+			variables_array[2]++;
+			if ((*b)->head->data >= sorted_array[variables_array[3]])
 			{
 				rb(b);
-				op_cnt[1]++;
+				variables_array[1]++;
 			}
 		}
 	}
-	return (op_cnt);
+	return (variables_array);
 }
 
 void	a_to_b(int n, t_double_linked_list **a, \
@@ -93,35 +86,28 @@ void	a_to_b(int n, t_double_linked_list **a, \
 int	*seperate_b_to_a(int n, t_double_linked_list **a, \
 						t_double_linked_list **b, int *sorted_array)
 {
-	int	*op_cnt;
-	int	pivot1_idx;
-	int	pivot2_idx;
+	int	*variables_array;
 
-	op_cnt = (int *)malloc(sizeof(int) * 3);
-	op_cnt[0] = 0;
-	op_cnt[1] = 0;
-	op_cnt[2] = 0;
-	pivot1_idx = n / 3;
-	pivot2_idx = n / 3 * 2;
+	variables_array = init_variables(n);
 	while (n-- > 0)
 	{
-		if ((*b)->head->data < sorted_array[pivot1_idx])
+		if ((*b)->head->data < sorted_array[variables_array[3]])
 		{
 			rb(b);
-			op_cnt[1]++;
+			variables_array[1]++;
 		}
 		else
 		{
 			pa(a, b);
-			op_cnt[2]++;
-			if ((*a)->head->data < sorted_array[pivot2_idx])
+			variables_array[2]++;
+			if ((*a)->head->data < sorted_array[variables_array[4]])
 			{
 				ra(a);
-				op_cnt[0]++;
+				variables_array[0]++;
 			}
 		}
 	}
-	return (op_cnt);
+	return (variables_array);
 }
 
 void	b_to_a(int n, t_double_linked_list **a, \

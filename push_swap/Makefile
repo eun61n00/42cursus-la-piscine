@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/09/30 09:41:06 by eukwon           ###   ########.fr        #
+#    Updated: 2022/10/01 16:37:35 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	push.c\
 	swap.c\
 	rotate.c\
+	init_variables.c\
 )
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
