@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:35:55 by eukwon            #+#    #+#             */
-/*   Updated: 2022/09/28 13:55:37 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/02 09:06:34 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	swap(int *num_arr, int L, int R)
 	num_arr[R] = tmp;
 }
 
-static void	quick_sort(int *num_arr, int L, int R)
+void	quick_sort(int *num_arr, int L, int R)
 {
 	int	left;
 	int	right;

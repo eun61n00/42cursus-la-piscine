@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 15:32:00 by eukwon            #+#    #+#              #
-#    Updated: 2022/07/14 10:05:22 by eukwon           ###   ########.fr        #
+#    Updated: 2022/10/02 11:01:50 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ ft_putnbr_base.c \
 ft_putstr_pf.c \
 ft_strdup.c \
 ft_strlen.c
+
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_NAME))
 
 OBJS_DIR = ./objs
