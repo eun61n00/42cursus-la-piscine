@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 15:32:00 by eukwon            #+#    #+#              #
-#    Updated: 2022/07/14 10:05:22 by eukwon           ###   ########.fr        #
+#    Updated: 2022/10/02 13:38:32 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 CC = cc
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 AR = AR
 ARFLAG = -crs
