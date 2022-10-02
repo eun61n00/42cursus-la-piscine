@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_variables.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 16:34:52 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/02 14:14:23 by eukwon           ###   ########.fr       */
+/*   Created: 2022/03/17 19:12:41 by eukwon            #+#    #+#             */
+/*   Updated: 2022/09/03 16:58:15 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/libft.h"
 
-int	*init_variables(int n)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	*variables_array;
-
-	variables_array = (int *)malloc(sizeof(int) * 5);
-	variables_array[0] = 0;
-	variables_array[1] = 0;
-	variables_array[2] = 0;
-	variables_array[3] = n / 3;
-	variables_array[4] = n / 3 * 2;
-	return (variables_array);
+	if (*lst == 0)
+		*lst = new;
+	else
+		ft_lstlast(*lst)->next = new;
 }

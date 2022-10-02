@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 09:00:34 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/02 09:52:18 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/02 19:57:56 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,13 @@ static int	*seperate_b_to_a(int n, t_double_linked_list **a, \
 	return (variables_array);
 }
 
-void	b_to_a(int n, t_double_linked_list **a, \
-				t_double_linked_list **b, \
-				int *sorted_array)
+static int	check_nums_in_b(int n, \
+							t_double_linked_list **a, \
+							t_double_linked_list **b)
 {
-	int	*op_cnt;
 	int	n_cp;
 
 	n_cp = n;
-	(*b)->excuted = 1;
 	if (n <= 3)
 	{
 		while (n > 0)
@@ -57,8 +55,29 @@ void	b_to_a(int n, t_double_linked_list **a, \
 		}
 		n = n_cp;
 		sort_few_nums(a, b, n);
-		return ;
+		return (1);
 	}
+	if (already_sorted_reverse(b, n) == 1)
+	{
+		while (n > 0)
+		{
+			pa(a, b);
+			n--;
+		}
+		return (1);
+	}
+	return (0);
+}
+
+void	b_to_a(int n, t_double_linked_list **a, \
+				t_double_linked_list **b, \
+				int *sorted_array)
+{
+	int	*op_cnt;
+
+	(*b)->excuted = 1;
+	if (check_nums_in_b(n, a, b) == 1)
+		return ;
 	op_cnt = seperate_b_to_a(n, a, b, sorted_array);
 	a_to_b(op_cnt[2] - op_cnt[0], a, b, &sorted_array[n / 3 * 2]);
 	reverse_unsorted(a, b, op_cnt[0], op_cnt[1]);

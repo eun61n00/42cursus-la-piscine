@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 09:50:28 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/02 09:49:31 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/02 19:36:32 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	a_to_b(int n, t_double_linked_list **a, \
 		sort_few_nums(a, b, n);
 		return ;
 	}
+	if (already_sorted(a, n) == 1)
+		return ;
 	op_cnt = seperate_a_to_b(n, a, b, sorted_array);
 	reverse_unsorted(a, b, op_cnt[0], op_cnt[1]);
 	a_to_b(op_cnt[0], a, b, &sorted_array[n / 3 * 2]);

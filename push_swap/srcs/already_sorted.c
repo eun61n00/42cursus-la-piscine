@@ -1,26 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_variables.c                                   :+:      :+:    :+:   */
+/*   already_sorted.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 16:34:52 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/02 14:14:23 by eukwon           ###   ########.fr       */
+/*   Created: 2022/10/02 19:05:45 by eukwon            #+#    #+#             */
+/*   Updated: 2022/10/02 20:30:10 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	*init_variables(int n)
+int	already_sorted(t_double_linked_list **a, int n)
 {
-	int	*variables_array;
+	t_double_linked_list_node	*tmp;
 
-	variables_array = (int *)malloc(sizeof(int) * 5);
-	variables_array[0] = 0;
-	variables_array[1] = 0;
-	variables_array[2] = 0;
-	variables_array[3] = n / 3;
-	variables_array[4] = n / 3 * 2;
-	return (variables_array);
+	tmp = (*a)->head;
+	while (n > 1)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+
+		tmp = tmp->next;
+		n--;
+	}
+	return (1);
+}
+
+int	already_sorted_reverse(t_double_linked_list **b, int n)
+{
+	t_double_linked_list_node	*tmp;
+
+	tmp = (*b)->head;
+	while (n > 1)
+	{
+		if (tmp->data < tmp->next->data)
+			return (0);
+		tmp = tmp->next;
+		n--;
+	}
+	return (1);
 }

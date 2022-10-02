@@ -6,13 +6,13 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 09:35:55 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/02 09:06:34 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/02 13:35:40 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	*copy_data(t_double_linked_list **a)
+static int	*copy_data(t_double_linked_list **a)
 {
 	int							*num_arr;
 	int							i;
