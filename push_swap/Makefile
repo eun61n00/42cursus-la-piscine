@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/14 10:20:40 by eukwon            #+#    #+#              #
-#    Updated: 2022/10/02 11:44:58 by eukwon           ###   ########.fr        #
+#    Updated: 2022/10/02 12:13:25 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,6 +88,7 @@ clean :
 	@$(MAKE) -C ./lib/libft clean
 	@$(MAKE) -C ./lib/ft_printf clean
 	@${RM} $(RMFLAG) $(OBJS)
+	@${RM} $(RMFLAG) $(OBJS_DIR)
 	@printf "$(LF)$(LIGHT_GREEN)Cleaning $(GREEN)$(NAME)'s Object files...${CRLF}"
 
 fclean : clean
