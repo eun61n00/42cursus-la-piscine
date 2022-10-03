@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 18:59:34 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/02 09:34:16 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/03 10:30:10 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ static void	sort_three_nums(t_double_linked_list **a, \
 	else
 		reverse_rotate_three_nums(a, b);
 }
+
 
 void	sort_few_nums(t_double_linked_list **a, t_double_linked_list **b, int n)
 {

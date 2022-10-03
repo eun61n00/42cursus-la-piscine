@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 19:05:45 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/02 20:30:10 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/03 08:23:01 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	already_sorted(t_double_linked_list **a, int n)
 	{
 		if (tmp->data > tmp->next->data)
 			return (0);
-
 		tmp = tmp->next;
 		n--;
 	}

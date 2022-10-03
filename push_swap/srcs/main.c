@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/02 21:45:47 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/03 10:28:20 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,13 @@ int	main(int argc, char *argv[])
 		a_to_b(a->size, &a, &b, sorted_array);
 		free(sorted_array);
 	}
+	// t_double_linked_list_node *tmp;
+	// tmp = a->head;
+	// while(tmp)
+	// {
+	// 	ft_printf("%d ", tmp->data);
+	// 	tmp = tmp->next;
+	// }
 	free_list(&a, &b);
 	return (0);
 }
