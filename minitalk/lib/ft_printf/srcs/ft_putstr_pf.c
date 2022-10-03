@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_putstr_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 17:08:44 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/03 11:14:26 by eukwon           ###   ########.fr       */
+/*   Created: 2022/06/17 11:33:28 by eukwon            #+#    #+#             */
+/*   Updated: 2022/07/14 11:24:51 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/ft_printf.h"
 
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../lib/ft_printf/includes/ft_printf.h"
-# include "../lib/libft/includes/libft.h"
+int	ft_putstr_pf(const char *str)
+{
+	int	ret;
 
-#endif
+	ret = 0;
+	if (str == NULL)
+	{
+		ft_putstr_pf("(null)");
+		return (6);
+	}
+	while (*str)
+	{
+		ft_putchar_pf(*str++);
+		ret++;
+	}
+	return (ret);
+}

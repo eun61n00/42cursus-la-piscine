@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 17:08:44 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/03 11:14:26 by eukwon           ###   ########.fr       */
+/*   Created: 2022/03/09 16:34:59 by eukwon            #+#    #+#             */
+/*   Updated: 2022/07/14 11:22:43 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/libft.h"
 
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../lib/ft_printf/includes/ft_printf.h"
-# include "../lib/libft/includes/libft.h"
-
-#endif
+void	ft_bzero(void *s, size_t n)
+{
+	while (n--)
+		*(char *)s++ = 0;
+}

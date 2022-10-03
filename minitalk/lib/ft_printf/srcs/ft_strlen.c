@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 17:08:44 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/03 11:14:26 by eukwon           ###   ########.fr       */
+/*   Created: 2022/06/17 11:33:02 by eukwon            #+#    #+#             */
+/*   Updated: 2022/07/14 11:24:51 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/ft_printf.h"
 
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../lib/ft_printf/includes/ft_printf.h"
-# include "../lib/libft/includes/libft.h"
+size_t	ft_strlen(const char *s)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}

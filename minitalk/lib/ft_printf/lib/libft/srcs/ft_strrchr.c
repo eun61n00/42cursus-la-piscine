@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 17:08:44 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/03 11:14:26 by eukwon           ###   ########.fr       */
+/*   Created: 2022/03/09 20:41:05 by eukwon            #+#    #+#             */
+/*   Updated: 2022/07/14 11:24:07 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/libft.h"
 
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../lib/ft_printf/includes/ft_printf.h"
-# include "../lib/libft/includes/libft.h"
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t		len;
 
-#endif
+	len = ft_strlen(s);
+	s = &s[len];
+	while (len + 1)
+	{
+		if ((char)c == *s)
+			return ((char *)s);
+		s--;
+		len--;
+	}
+	return (0);
+}
