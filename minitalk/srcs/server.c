@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:08:12 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/05 00:11:52 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/05 04:55:53 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	print_client_pid(pid_t client_pid)
 {
 	ft_putstr_fd("\n[Client PID: ", 1);
-	ft_putstr_fd(ft_itoa(client_pid), 1);
+	ft_putnbr_fd(client_pid, 1);
 	ft_putstr_fd("]\n", 1);
 }
 
@@ -37,6 +37,7 @@ static void	put_bit(int sig, siginfo_t *info, void *context)
 			print_client_pid(client_pid);
 			kill(client_pid, SIGUSR2);
 			client_pid = 0;
+			system("leaks server");
 			return ;
 		}
 		ft_putchar_fd(c, 1);
@@ -52,7 +53,7 @@ int	main(void)
 	struct sigaction	s_sigaction;
 
 	ft_putstr_fd("[Server PID: ", 1);
-	ft_putstr_fd(ft_itoa(getpid()), 1);
+	ft_putnbr_fd(getpid(), 1);
 	ft_putstr_fd("]\n", 1);
 	s_sigaction.sa_sigaction = put_bit;
 	s_sigaction.sa_flags = SA_SIGINFO;

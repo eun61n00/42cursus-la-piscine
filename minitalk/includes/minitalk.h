@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:08:44 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/05 04:08:11 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/05 04:22:51 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <signal.h>
 # include <unistd.h>
-# include <stdlib.h>
 # include "../lib/libft/includes/libft.h"
 
 #endif

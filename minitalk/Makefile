@@ -6,7 +6,7 @@
 #    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/02 17:08:28 by eukwon            #+#    #+#              #
-#    Updated: 2022/10/05 04:09:00 by eukwon           ###   ########.fr        #
+#    Updated: 2022/10/05 04:27:51 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,8 +71,8 @@ $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
 clean :
-	@$(MAKE) -C ./lib/ft_printf clean
-	@${RM} $(RMFLAG) $(OBJS) $(OBJS_DIR)
+	@$(MAKE) -C ./lib/libft fclean
+	@${RM} $(RMFLAG) $(OBJS_DIR) $(SERVER) $(CLIENT)
 	@printf "$(LF)$(LIGHT_GREEN)Cleaning $(GREEN)$(NAME)'s Object files...${CRLF}"
 
 fclean : clean
