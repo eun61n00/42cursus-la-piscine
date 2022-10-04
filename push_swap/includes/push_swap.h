@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 08:39:19 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/03 10:31:56 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/05 05:53:13 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ typedef struct s_double_linked_list {
 	int									excuted;
 }	t_double_linked_list;
 
+void						print_error(void);
 int							contain_duplicates(t_double_linked_list **a);
-t_double_linked_list		*parsing(int argc, char *argv[]);
+t_double_linked_list		*parsing(char *argv[]);
 void						sa(t_double_linked_list **a);
 void						sb(t_double_linked_list **b);
 void						pa(t_double_linked_list **a, \

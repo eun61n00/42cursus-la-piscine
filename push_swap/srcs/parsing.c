@@ -6,7 +6,7 @@
 /*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 16:27:15 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/03 08:27:42 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/05 05:57:31 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ int	split_arguments(char *argv, t_double_linked_list *a)
 
 	split_array = ft_split(argv, ' ');
 	i = 0;
+	if (!split_array[0])
+	{
+		ft_free_double_pointer(split_array);
+		return (0);
+	}
 	while (split_array[i])
 	{
 		if (is_valid(split_array[i]) == 0)
@@ -57,7 +62,7 @@ int	split_arguments(char *argv, t_double_linked_list *a)
 	return (1);
 }
 
-t_double_linked_list	*parsing(int argc, char *argv[])
+t_double_linked_list	*parsing(char *argv[])
 {
 	t_double_linked_list	*a;
 
@@ -65,8 +70,7 @@ t_double_linked_list	*parsing(int argc, char *argv[])
 	a = new_double_linked_list();
 	if (a == NULL)
 		return (NULL);
-	(void)argc;
-	while (*argv)
+	while (*argv && a)
 	{
 		if (ft_strchr(*argv, ' '))
 		{
@@ -75,8 +79,8 @@ t_double_linked_list	*parsing(int argc, char *argv[])
 		}
 		else
 		{
-			if (is_valid(*argv) == 0)
-				return (NULL);
+			if (is_valid(*argv) == 0 || !ft_strlen(*argv))
+				print_error();
 			append_double_linked_list(&a, \
 				new_double_linked_list_node(ft_atoi(*argv)));
 		}
