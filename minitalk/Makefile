@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/02 17:08:28 by eukwon            #+#    #+#              #
-#    Updated: 2022/10/03 14:17:58 by eukwon           ###   ########.fr        #
+#    Updated: 2022/10/05 00:15:36 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,13 +33,6 @@ LIBFT_FILE = $(LIBFT_DIR)/$(LIBFT)
 LIBFT_FLAGS = -L $(LIBFT_DIR) -lft
 LIBFT_INC_DIR = $(LIBFT_DIR)/includes
 
-# ft_printf
-FT_PRINTF = libftprintf.a
-FT_PRINTF_DIR = ./lib/ft_printf
-FT_PRINTF_FILE = $(FT_PRINTF_DIR)/$(FT_PRINTF)
-FT_PRINTF_FLAGS = -L $(FT_PRINTF_DIR) -lft
-FT_PRINTF_INC_DIR = $(FT_PRINTF_DIR)/includes
-
 # color
 NO_COLOR = \e[0m
 LIGHT_GREEN = \e[1;32;189;147;249m
@@ -53,26 +46,26 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	server.c\
 )
 
-# OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
 OBJS = ./objs/client.o ./objs/server.o
 
 all : $(SERVER) $(CLIENT)
 
 $(SERVER) : $(OBJS)
+	$(MAKE) -C ./lib/libft all
 	$(MAKE) -C ./lib/ft_printf all
 	@printf "$(LF)$(LIGHT_GREEN)Successfully Created $(GREEN)$(NAME)'s Object files!"
 	@printf "$(CRLF)$(LIGHT_GREEN)Archiving! $(GREEN)$@${CRLF}"
-	$(CC) $(CFLAG) ./objs/server.o $(LIBFT_DIR)/$(LIBFT) $(FT_PRINTF_DIR)/$(FT_PRINTF) -I $(INCLUDES_DIR) $(LIBFT_FLAGS) $(FT_PRINTF_FLAGS) -o $(SERVER)
+	$(CC) $(CFLAG) ./objs/server.o $(LIBFT_DIR)/$(LIBFT) -I $(INCLUDES_DIR) $(LIBFT_FLAGS) -o $(SERVER)
 	@printf "$(LF)$(LIGHT_GREEN)Successfully Archived $(GREEN)$@$(LIGHT_GREEN)!${CRLF}"
 
 $(CLIENT) : $(OBJS)
 	@printf "$(LF)$(LIGHT_GREEN)Successfully Created $(GREEN)$(NAME)'s Object files!"
 	@printf "$(CRLF)$(LIGHT_GREEN)Archiving! $(GREEN)$@${CRLF}"
-	$(CC) $(CFLAG) ./objs/client.o $(LIBFT_DIR)/$(LIBFT) $(FT_PRINTF_DIR)/$(FT_PRINTF) -I $(INCLUDES_DIR) $(LIBFT_FLAGS) $(FT_PRINTF_FLAGS) -o $(CLIENT)
+	$(CC) $(CFLAG) ./objs/client.o $(LIBFT_DIR)/$(LIBFT) -I $(INCLUDES_DIR) $(LIBFT_FLAGS) -o $(CLIENT)
 	@printf "$(LF)$(LIGHT_GREEN)Successfully Archived $(GREEN)$@$(LIGHT_GREEN)!${CRLF}"
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.c | $(OBJS_DIR)
-	$(CC) $(CFLAG) -c $^ -o $@ -I $(INCLUDES_DIR) -I $(LIBFT_INC_DIR) -I $(FT_PRINTF_INC_DIR)
+	$(CC) $(CFLAG) -c $^ -o $@ -I $(INCLUDES_DIR) -I $(LIBFT_INC_DIR)
 	@printf "$(LF)$(LIGHT_GREEN)Create $(GREEN)$@ $(LIGHT_GREEN)from $(GREEN)$<${CRLF}"
 
 $(OBJS_DIR):

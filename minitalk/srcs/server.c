@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:08:12 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/03 15:51:17 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/05 00:11:52 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk.h"
+
+static void	print_client_pid(pid_t client_pid)
+{
+	ft_putstr_fd("\n[Client PID: ", 1);
+	ft_putstr_fd(ft_itoa(client_pid), 1);
+	ft_putstr_fd("]\n", 1);
+}
 
 static void	put_bit(int sig, siginfo_t *info, void *context)
 {
@@ -25,8 +32,9 @@ static void	put_bit(int sig, siginfo_t *info, void *context)
 	if (++i == 8)
 	{
 		i = 0;
-		if (!c)
+		if (c == 0)
 		{
+			print_client_pid(client_pid);
 			kill(client_pid, SIGUSR2);
 			client_pid = 0;
 			return ;
@@ -43,14 +51,14 @@ int	main(void)
 {
 	struct sigaction	s_sigaction;
 
-	ft_putstr_fd("Server PID: ", 1);
+	ft_putstr_fd("[Server PID: ", 1);
 	ft_putstr_fd(ft_itoa(getpid()), 1);
-	write(1, "\n", 1);
-	s_sigaction.sa_sigaction = put_bit; //신호를 받으면 사용할 함수를 sigaction 구조체에 대입
-	s_sigaction.sa_flags = SA_SIGINFO; //옵션 설정: sa_handler대신 sa_sigaction을 사용하도록 변경하는 옵션
+	ft_putstr_fd("]\n", 1);
+	s_sigaction.sa_sigaction = put_bit;
+	s_sigaction.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &s_sigaction, 0);
 	sigaction(SIGUSR2, &s_sigaction, 0);
 	while (1)
-		pause(); // wait for client signal
+		pause();
 	return (0);
 }
