@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+         #
+#    By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/02 17:08:28 by eukwon            #+#    #+#              #
-#    Updated: 2022/10/05 00:15:36 by eukwon           ###   ########.fr        #
+#    Updated: 2022/10/05 04:09:00 by eukwon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ all : $(SERVER) $(CLIENT)
 
 $(SERVER) : $(OBJS)
 	$(MAKE) -C ./lib/libft all
-	$(MAKE) -C ./lib/ft_printf all
 	@printf "$(LF)$(LIGHT_GREEN)Successfully Created $(GREEN)$(NAME)'s Object files!"
 	@printf "$(CRLF)$(LIGHT_GREEN)Archiving! $(GREEN)$@${CRLF}"
 	$(CC) $(CFLAG) ./objs/server.o $(LIBFT_DIR)/$(LIBFT) -I $(INCLUDES_DIR) $(LIBFT_FLAGS) -o $(SERVER)
