@@ -3,42 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eukwon <eukwon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: eukwon <eukwon@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:14:53 by eukwon            #+#    #+#             */
-/*   Updated: 2022/10/05 06:10:40 by eukwon           ###   ########.fr       */
+/*   Updated: 2022/10/05 09:48:28 by eukwon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	free_list(t_double_linked_list **a, t_double_linked_list **b)
+void	free_double_linked_list(t_double_linked_list **list)
 {
 	t_double_linked_list_node	*tmp;
 
-	if (*a)
+	if (*list)
 	{
-		tmp = (*a)->head;
+		tmp = (*list)->head;
 		while (tmp)
 		{
 			free(tmp);
 			tmp = tmp->next;
 		}
-		free(*a);
 	}
-	tmp = (*b)->head;
-	while (tmp)
-	{
-		tmp = tmp->next;
-		free(tmp);
-	}
-	free(*b);
-}
-
-void	print_error(void)
-{
-	ft_printf("Error\n");
-	exit(-1);
+	free(*list);
 }
 
 int	main(int argc, char *argv[])
@@ -54,7 +41,7 @@ int	main(int argc, char *argv[])
 	if (b == NULL)
 		return (-1);
 	if (a == NULL || contain_duplicates(&a) == 1)
-		print_error();
+		ft_printf("Error\n");
 	else
 	{
 		sorted_array = make_sorted_array(&a);
@@ -63,7 +50,7 @@ int	main(int argc, char *argv[])
 		a_to_b(a->size, &a, &b, sorted_array);
 		free(sorted_array);
 	}
-	free_list(&a, &b);
-	// system("leaks push_swap");
+	free_double_linked_list(&a);
+	free_double_linked_list(&b);
 	return (0);
 }
